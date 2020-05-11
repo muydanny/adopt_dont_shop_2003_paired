@@ -1,0 +1,33 @@
+<div class="background">
+  <img src="https://wallpaperaccess.com/full/783057.jpg" alt="kitten">
+</div>
+
+<div class="content">
+  <div class="main_menu">
+    <a href="/">Main</a>
+    <a href="/shelters">Shelters</a>
+    <a class="active" href="/shelters/new">New Shelter</a>
+    <a href="/pets">Pets</a>
+
+  </div>
+
+  <h1 class="header">Enter A New Shelter</h1>
+
+<section class="bold">
+  <%= form_tag '/shelters' do %>
+    <%= label_tag :name%><br>
+    <%= text_field_tag :name%><br><br>
+    <%= label_tag :address%><br>
+    <%= text_field_tag :address%><br><br>
+    <%= label_tag :city%><br>
+    <%= text_field_tag :city%><br><br>
+    <%= label_tag :state%><br>
+    <%= text_field_tag :state, nil, maxlength: 2, minlength:2%><br><br>
+    <%= label_tag :zip%><br>
+    <%= text_field_tag :zip, nil, maxlength:5, minlength:5%><br><br>
+    <%= submit_tag  "Create Shelter"%>
+  <% end %>
+</section>
+
+
+</div> /* final */

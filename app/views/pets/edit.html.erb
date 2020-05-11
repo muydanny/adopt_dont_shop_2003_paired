@@ -1,0 +1,35 @@
+<div class="background">
+  <img src="https://wallpaperaccess.com/full/783057.jpg" alt="kitten">
+</div>
+
+<div class="content">
+  <div class="main_menu">
+    <a href="/">Main</a>
+    <a href="/shelters">Shelters</a>
+    <a href="/shelters/new">New Shelter</a>
+    <a href="/pets">Pets</a>
+  </div>
+
+  <h1 class="header">Update <%= @pet.name %></h1>
+
+  <section class="bold">
+    <%= form_tag "/pets/#{@pet.id}", method: :patch do %>
+      <%= label_tag :name %><br>
+      <%= text_field_tag :name, "#{@pet.name}" %><br><br>
+      <%= label_tag :description %><br>
+      <%= text_area_tag :description, "#{@pet.description}" %><br><br>
+      <%= label_tag :image %><br>
+      <%= text_field_tag :image, "#{@pet.image}" %><br><br>
+      <%= label_tag :age %><br>
+      <%= number_field_tag :age , "#{@pet.age}"%><br><br>
+      <%= label_tag :female %><br>
+      <%= radio_button_tag :sex, :female , "#{@pet.sex}"%><br><br>
+      <%= label_tag :male %><br>
+      <%= radio_button_tag :sex, :male, "#{@pet.name}" %><br>
+      <%= hidden_field_tag :adoptable, "#{@pet.adoptable}" %>
+      <%= submit_tag "Update Pet" %>
+    <%end %>
+  </section>
+
+
+</div> /* final */

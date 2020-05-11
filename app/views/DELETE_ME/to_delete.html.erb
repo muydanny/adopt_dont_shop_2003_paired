@@ -1,0 +1,36 @@
+<div class="background">
+  <img src="https://wallpaperaccess.com/full/783057.jpg" alt="kitten">
+</div>
+
+<div class="content">
+  <div class="main_menu">
+    <a href="/">Main</a>
+    <a href="/shelters">Shelters</a>
+    <a href="/shelters/new">New Shelter</a>
+    <a href="/pets">Pets</a>
+
+  </div>
+
+  <h1 class="header">Enter A New Shelter Pet</h1>
+
+  <section class="bold">
+    <%= form_tag "/shelters/#{@shelter.id}/pets" do %>
+      <%= label_tag :name %><br>
+      <%= text_field_tag :name %><br><br>
+      <%= label_tag :description %><br>
+      <%= text_area_tag :description %><br><br>
+      <%= label_tag :image %><br>
+      <%= text_field_tag :image %><br><br>
+      <%= label_tag :age %><br>
+      <%= number_field_tag :age %><br><br>
+      <%= label_tag :female %><br>
+      <%= radio_button_tag :sex, :female %><br><br>
+      <%= label_tag :male %><br>
+      <%= radio_button_tag :sex, :male %><br>
+      <%= submit_tag "Create Pet" %>
+    <%end %>
+  </section>
+
+
+
+</div> /* final */

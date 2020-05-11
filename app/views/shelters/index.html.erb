@@ -1,0 +1,35 @@
+<div class="background">
+  <img src="https://wallpaperaccess.com/full/783057.jpg" alt="kitten">
+</div>
+
+<div class="content">
+  <div class="main_menu">
+    <a href="/">Main</a>
+    <a class="active" href="/shelters">Shelters</a>
+    <a href="/shelters/new">New Shelter</a>
+    <a href="/pets">Pets</a>
+
+
+  </div>
+  <h1 class="header">All Shelters</h1>
+  <p><a class="pet-link hover" href="/shelters?num_pets=true">Sort Shelters by Number of Pets</a></p>
+  <p><a class="pet-link hover" href="/shelters?alphabetical=true">Sort Shelters by Alpbetical Order</a></p>
+
+
+  <% @shelters.each do |shelter| %>
+
+      <h2><a class="shelter-link" href="/shelters/<%= shelter.id %>"><%= shelter.name %></a></h2>
+      <p>Pet Count: <%= shelter.pets.count %></p>
+      <p><a class="edit" href="/shelters/<%= shelter.id %>/edit">Update Shelter</a></p>
+      <p><a class="edit" href="/shelters/<%= shelter.id %>/pets/new">Create Pet</a></p>
+      <% if shelter.pets.count == 0 %>
+      <section class="delete-form">
+        <%= button_to "Delete #{shelter.name}", "/shelters/#{shelter.id}", method: :delete %>
+      </section>
+      <% else %>
+      <p class="italics">Cannot delete shelter while it has pets</p>
+      <% end %>
+
+  <% end %>
+
+</div>

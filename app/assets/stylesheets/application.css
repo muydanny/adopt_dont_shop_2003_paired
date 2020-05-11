@@ -1,0 +1,147 @@
+/*
+ * This is a manifest file that'll be compiled into application.css, which will include all the files
+ * listed below.
+ *
+ * Any CSS and SCSS file within this directory, lib/assets/stylesheets, or any plugin's
+ * vendor/assets/stylesheets directory can be referenced here using a relative path.
+ *
+ * You're free to add application-wide styles to this file and they'll appear at the bottom of the
+ * compiled file so the styles you add here take precedence over styles defined in any other CSS/SCSS
+ * files in this directory. Styles in this file should be added after the last require_* statement.
+ * It is generally better to create a new file per style scope.
+ *
+ *= require_tree .
+ *= require_self
+ */
+
+ .background img {
+   position:fixed;
+   opacity:0.8;
+   transform: scaleX(-1);
+   background-size: cover;
+ }
+ .content {
+   font-family:"Arial";
+   position: absolute;
+   top:0;
+   margin-top: 40px;
+ }
+ .content {
+   margin-left: 20px;
+ }
+.header {
+  color: white;
+    text-shadow:
+        0.07em 0 black,
+        0 0.07em black,
+        -0.07em 0 black,
+        0 -0.07em black;
+}
+.welcome-statement {
+  color: black;
+  font-weight: bold;
+}
+ .main_menu {
+   margin-left: -20px;
+   margin-top: -40px;
+   background-color:black;
+   overflow:hidden;
+   height: 40px;
+   width: 200vw;
+  position:fixed;
+ }
+ .main_menu a {
+  float:left;
+  color:white;
+  text-decoration:none;
+  padding: 11px;
+}
+.main_menu a:hover {
+  background-color: #ddd;
+  color: black;
+}
+.main_menu a.active {
+  background-color:gray;
+}
+.shelter-link {
+  text-decoration: none;
+  color: black;
+  font-weight: bold;
+  padding: 5px;
+}
+.shelter-link:hover {
+  background-color: #ddd;
+  color: black;
+}
+.hover:hover {
+  background-color: #ddd;
+  color: black;
+}
+.pet-link {
+  background-color: black;
+  color: white;
+  text-decoration: none;
+  padding: 5px 50px 5px 50px;
+  margin-left: 10px;
+}
+.shelter-edit {
+  background-color: gray;
+  color: white;
+}
+.shelter-edit:hover{
+  color: black;
+}
+
+
+.submit_button {
+  background-color: black;
+  color:white;
+  font-weight: bold;
+  height: 30px;
+  width: 120px;
+}
+.pet-image {
+  left: 50%;
+  height: 40vh;
+}
+.pet-image-small {
+  left: 50%;
+  height: 20vh;
+}
+.pet-list {
+  border-left-style: solid;
+  border-left-width: 20px;
+  border-left-color:black;
+  background: rgba(255,255,255,0.2);
+}
+.edit {
+  color:white;
+  text-decoration:none;
+  padding: 5px 10px 5px 10px;
+  background-color: gray;
+}
+.edit:hover {
+ background-color: #ddd;
+ color: black;
+}
+.delete-form input{
+  color:white;
+  background-color: gray;
+  /* width: 100px; */
+  height: 20px;
+  font-weight: bold;
+  font-size: 12px;
+  outline: 1px solid red;
+}
+.delete-form input:hover {
+  background-color: #ddd;
+  color: black;
+}
+.bold {
+  font-weight: bold;
+}
+.italics {
+  color: black;
+  font-style: italic;
+  font-size: 10px;
+}

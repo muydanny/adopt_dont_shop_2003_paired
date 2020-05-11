@@ -1,0 +1,40 @@
+<div class="background">
+  <img src="https://wallpaperaccess.com/full/783057.jpg" alt="kitten">
+</div>
+
+<div class="content">
+  <div class="main_menu">
+    <a href="/">Main</a>
+    <a href="/shelters">Shelters</a>
+    <a href="/shelters/new">New Shelter</a>
+    <a href="/pets">Pets</a>
+
+  </div>
+
+  <h1 class="header"><%= @shelter.name %> PETS!</h1>
+  <h2>Pet Count: <%= @shelter.pets.length %></h2>
+  <p><a class="pet-link hover bold" href="/shelters/<%= @shelter.id %>/pets/new">New Pet</a></p>
+  <p><a class="pet-link hover" href="/shelters/<%= @shelter.id %>/pets?adoptable=true">Show Only Adoptable Pets</a></p>
+  <p><a class="pet-link hover" href="/shelters/<%= @shelter.id %>/pets?adoptable=false">Show Only Pending Adoption Pets</a></p>
+  <% @pets.each do |pet| %>
+
+  <div class="pet-list">
+
+    <img class="pet-image-small" src="<%= pet.image %>" alt="<%= pet.name %> image"> <p>
+    <h2><a class="pet-link hover" href="/pets/<%= pet.id %>"><%= pet.name %></a></h2>
+    <p>Approximate Age: <%= pet.age %><p>
+    <p>Sex: <%= pet.sex %><p>
+    <p>Name of Shelter: <%= pet.shelter.name %><p>
+  <a class="edit" href="/pets/<%= pet.id %>/edit">Update Pet</a>
+
+  <section class="delete-form">
+    <%= button_to "Delete #{pet.name}", "/pets/#{pet.id}", method: :delete %>
+  </section>
+
+</div><br><br>
+
+
+  <% end %>
+
+
+</div> --> %>
