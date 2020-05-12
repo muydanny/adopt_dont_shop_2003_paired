@@ -7,4 +7,9 @@ RSpec.describe "Favorite Indicator", type: :feature do
     find('.favorite_indicator').click
     expect(current_path).to eq("/favorites")
   end
+
+  xit "has button next to pet to add to favorites" do
+
+  end
+
 end
