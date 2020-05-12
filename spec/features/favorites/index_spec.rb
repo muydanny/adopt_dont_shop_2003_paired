@@ -92,9 +92,26 @@ RSpec.describe "Favorite Indicator", type: :feature do
       click_button "Remove #{@pet1.name} from favorites"
     end
 
+  end
+
+  it "shows prompt when there are no favorite pets" do
+    visit '/favorites'
+
+    expect(page).to have_content("You have no favorited pets")
+
+    visit '/pets'
+    within("#fav-#{@pet1.id}") do
+      click_button "Add #{@pet1.name} to favorites"
+    end
+
+    visit '/favorites'
+
+    expect(page).not_to have_content("You have no favorited pets")
+    expect(page).to have_content("#{@pet1.name}")
 
 
   end
+
 
 
 end

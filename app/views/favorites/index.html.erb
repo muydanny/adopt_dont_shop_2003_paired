@@ -2,19 +2,22 @@
 <div class="content">
 
   <h1 class="header">Favorite Pets</h1>
+  <% if @favorite_pets.empty? %>
+    <p class="bold">You have no favorited pets</p>
+  <% else %>
+    <% @favorite_pets.each do |pet| %>
+    <div class="pet-list">
 
-  <% @favorite_pets.each do |pet| %>
-  <div class="pet-list">
+        <img class="pet-image-small" src="<%= pet.image %>" alt="<%= pet.name %> image"> <p>
+        <h2><a id="<%= pet.name %>"class="pet-link hover" href="/pets/<%= pet.id %>"><%= pet.name %></a></h2>
+        <br>
+        <section id="delete-<%= pet.id %>">
+          <%= button_to "Remove #{pet.name} from favorites", "/favorites/#{pet.id}?page=favorites", method: :delete, class: "grey hoever" %>
+        </section>
+    </div>
+    <br>
 
-      <img class="pet-image-small" src="<%= pet.image %>" alt="<%= pet.name %> image"> <p>
-      <h2><a id="<%= pet.name %>"class="pet-link hover" href="/pets/<%= pet.id %>"><%= pet.name %></a></h2>
-      <br>
-      <section id="delete-<%= pet.id %>">
-        <%= button_to "Remove #{pet.name} from favorites", "/favorites/#{pet.id}?page=favorites", method: :delete, class: "grey hoever" %>
-      </section>
-  </div>
-  <br>
-
+    <% end %>
   <% end %>
 
 
