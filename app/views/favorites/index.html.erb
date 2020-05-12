@@ -6,7 +6,7 @@
     <p class="bold">You have no favorited pets</p>
   <% else %>
     <% @favorite_pets.each do |pet| %>
-    <div class="pet-list">
+    <section id="<%= pet.id %>-info" class="pet-list">
 
         <img class="pet-image-small" src="<%= pet.image %>" alt="<%= pet.name %> image"> <p>
         <h2><a id="<%= pet.name %>"class="pet-link hover" href="/pets/<%= pet.id %>"><%= pet.name %></a></h2>
@@ -14,10 +14,15 @@
         <section id="delete-<%= pet.id %>">
           <%= button_to "Remove #{pet.name} from favorites", "/favorites/#{pet.id}?page=favorites", method: :delete, class: "grey hoever" %>
         </section>
-    </div>
+    </section>
     <br>
 
     <% end %>
+
+    <section id="remove-all-from-fav">
+      <%= button_to "Remove all pets from favorites", "/favorites?remove_all=true", method: :delete, class: "grey hoever" %>
+    </section>
+
   <% end %>
 
 

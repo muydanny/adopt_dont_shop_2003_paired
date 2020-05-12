@@ -37,5 +37,10 @@ class FavoritesController < ApplicationController
     end
   end
 
+  def destroy_all
+    reset_session
+    redirect_to '/favorites'
+  end
+
 
 end
