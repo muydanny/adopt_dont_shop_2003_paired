@@ -10,21 +10,20 @@ RSpec.describe "When a user adds a pet to their favorites" do
       zip: "12345"
     )
     @pet1 = Pet.create(
-      name: "Walter",
+      name: "Dr. Dog",
       age: "4",
       sex: "male",
-      description: "a bit mischevious",
-      image: "https://thesmartcanine.com/wp-content/uploads/2019/09/sealyham-terrier-small-dog.jpg",
+      description: "well educated",
+      image: "https://i.redd.it/4ygdq7e6gze11.jpg",
       shelter_id: @shelter1.id,
       adoptable: true
     )
     @pet2 = Pet.create(
-      name: "Penny",
+      name: "Oreo",
       age: "55",
       sex: "female",
-      description: "known to eat goose poop",
-
-      image: "https://www.rover.com/blog/wp-content/uploads/2019/05/puppy-in-bowl.jpg",
+      description: "best if dipped in milk",
+      image: "https://image.shutterstock.com/image-photo/cute-american-shorthair-cat-kitten-260nw-352176329.jpg",
       shelter_id: @shelter1.id,
       adoptable: false
     )

@@ -50,7 +50,7 @@
    width: 200vw;
   position:fixed;
  }
- .main_menu a {
+ .link {
   float:left;
   color:white;
   text-decoration:none;
@@ -150,4 +150,10 @@
   text-decoration:none;
   padding: 5px 10px 5px 10px;
   background-color: gray;
+}
+.favorite_indicator {
+  float:left;
+  color:gold;
+  text-decoration:none;
+  padding: 11px;
 }
