@@ -39,12 +39,8 @@ RSpec.describe "Favorite Indicator", type: :feature do
   it "can add pets to favorites (no duplicates) and then view on index" do
     visit '/pets'
 
-    within("#pet-#{@pet1.id}") do
-      click_button "Add Pet to Favorites"
-    end
-
-    within("#pet-#{@pet1.id}") do
-      click_button "Add Pet to Favorites"
+    within("#fav-#{@pet1.id}") do
+      click_button "Add #{@pet1.name} to favorites"
     end
 
     find('.favorite_indicator').click
@@ -59,16 +55,45 @@ RSpec.describe "Favorite Indicator", type: :feature do
 
   it "can delete a pet from favorites" do
     visit '/pets'
+
+    within("#fav-#{@pet1.id}") do
+      click_button "Add #{@pet1.name} to favorites"
+    end
+    within("#fav-#{@pet2.id}") do
+      click_button "Add #{@pet2.name} to favorites"
+    end
+    find('.favorite_indicator').click
+
+    expect(current_path).to eq("/favorites")
+
+    within("#delete-#{@pet1.id}") do
+      click_button "Remove #{@pet1.name} from favorites"
+    end
+
+    expect(current_path).to eq("/favorites")
+
+    expect(page).not_to have_css("img[src*='https://i.redd.it/4ygdq7e6gze11.jpg']")
+
+    within("##{@pet2.name}") do
+      expect(page).to have_content(@pet2.name)
+    end
+    expect(page).to have_css("img[src*='https://image.shutterstock.com/image-photo/cute-american-shorthair-cat-kitten-260nw-352176329.jpg']")
+
+  end
+
+  it "shows remove from favorites if pet has been added to favorites" do
     visit '/pets'
 
-    within("#pet-#{@pet1.id}") do
-      click_button "Add Pet to Favorites"
+    within("#fav-#{@pet1.id}") do
+      click_button "Add #{@pet1.name} to favorites"
     end
 
-    within("#pet-#{@pet2.id}") do
-      click_button "Add Pet to Favorites"
+    within("#delete-#{@pet1.id}") do
+      click_button "Remove #{@pet1.name} from favorites"
     end
-    
+
+
+
   end
 
 

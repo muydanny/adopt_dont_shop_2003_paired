@@ -17,6 +17,16 @@
 
     <% end %><br><br>
 
+  <% if @favorite.contents[@pet.id.to_s].nil? || @favorite.contents[@pet.id.to_s] == 0 %>
+  <section id="fav-<%= @pet.id %>" >
+      <%= button_to "Add #{@pet.name} to favorites", "/favorites/#{@pet.id}?page=show", method: :patch, class: "grey hover" %>
+  </section><br>
+  <% else %>
+  <section id="delete-<%= @pet.id %>">
+    <%= button_to "Remove #{@pet.name} from favorites", "/favorites/#{@pet.id}?page=show", method: :delete, class: "grey hover" %>
+  </section><br>
+  <% end %>
+
   <a class="edit" href="/pets/<%= @pet.id %>/edit">Update Pet</a><br><br>
 
   <section class="delete-form">

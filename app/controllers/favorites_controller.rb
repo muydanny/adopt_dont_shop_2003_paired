@@ -16,25 +16,27 @@ class FavoritesController < ApplicationController
       flash[:notice] = "You have already added #{pet.name} to your favorites"
     end
 
-    redirect_to '/pets'
+    if params[:page] == "show"
+      redirect_to "/pets/#{pet.id}"
+    elsif params[:page] == "index"
+      redirect_to "/pets"
+    end
+  end
 
-
-
-
-
-    # pet = Pet.find(params[:pet_id])
-    # pet_id_str = pet.id.to_s
-    # session[:favorite] ||= Hash.new(0)
-    # session[:favorite][pet_id_str] ||= 0
-    # if session[:favorite][pet_id_str] == 0
-    #   session[:favorite][pet_id_str] = session[:favorite][pet_id_str] + 1
-    #   quantity = session[:favorite][pet_id_str]
-    #   flash[:notice] = "You have added #{pet.name} to your favorites"
-    # else
-    #   flash[:notice] = "You have already added #{pet.name} to your favorites"
-    # end
-    #
-    # redirect_to '/pets'
+  def destroy
+    favorite = session[:favorite]
+    pet = Pet.find(params[:pet_id])
+    if pet
+      favorite.delete(pet.id.to_s)
+      flash[:notice] = "You have removed #{pet.name} from your favorites"
+    end
+    if params[:page] == "favorites"
+      redirect_to '/favorites'
+    elsif params[:page] == "show"
+      redirect_to "/pets/#{pet.id}"
+    elsif params[:page] == "index"
+      redirect_to "/pets"
+    end
   end
 
 

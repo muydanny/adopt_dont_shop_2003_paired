@@ -7,6 +7,7 @@ class Favorite
   end
 
   def total_count
+    #this is ruby, and it was in the lesson?
     @contents.values.sum
   end
 
@@ -19,6 +20,7 @@ class Favorite
   end
 
   def favorite_pets
+    # need to chagne this to AR instead of RUBY
     @contents.keys.map {|id| Pet.find(id)}
   end
 end
