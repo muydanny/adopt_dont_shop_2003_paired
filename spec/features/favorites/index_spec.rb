@@ -140,7 +140,6 @@ RSpec.describe "Favorite Indicator", type: :feature do
     expect(page).to have_content("You have no favorited pets")
     expect(page).to have_css(".favorite_indicator", text: 0)
 
-
   end
 
 
