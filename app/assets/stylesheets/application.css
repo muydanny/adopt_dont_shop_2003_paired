@@ -157,3 +157,12 @@
   text-decoration:none;
   padding: 11px;
 }
+.notice{
+  background-color:#1a335f;
+  color:#2aa681;
+  border: 1px solid ;
+  font-family: "Arial";
+  font-weight: bold;
+  font-style: italic;
+  padding-left: 40px;
+}

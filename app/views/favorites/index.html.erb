@@ -10,7 +10,7 @@
       <h2><a id="<%= pet.name %>"class="pet-link hover" href="/pets/<%= pet.id %>"><%= pet.name %></a></h2>
       <br>
       <section id="delete-<%= pet.id %>">
-        <%= button_to "Remove #{pet.name} from favorites", "/favorites/#{pet.id}?page=favorites", method: :delete %>
+        <%= button_to "Remove #{pet.name} from favorites", "/favorites/#{pet.id}?page=favorites", method: :delete, class: "grey hoever" %>
       </section>
   </div>
   <br>
