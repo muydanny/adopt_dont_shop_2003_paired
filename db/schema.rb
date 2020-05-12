@@ -10,13 +10,13 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20200512013455) do
+ActiveRecord::Schema.define(version: 20200512015224) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
   create_table "favorites", force: :cascade do |t|
-    t.string "pet_name"
+    t.string "name"
   end
 
   create_table "pets", force: :cascade do |t|
@@ -27,8 +27,6 @@ ActiveRecord::Schema.define(version: 20200512013455) do
     t.string "age"
     t.string "sex"
     t.bigint "shelter_id"
-    t.bigint "favorite_id"
-    t.index ["favorite_id"], name: "index_pets_on_favorite_id"
     t.index ["shelter_id"], name: "index_pets_on_shelter_id"
   end
 
@@ -40,6 +38,5 @@ ActiveRecord::Schema.define(version: 20200512013455) do
     t.string "zip"
   end
 
-  add_foreign_key "pets", "favorites"
   add_foreign_key "pets", "shelters"
 end

@@ -6,7 +6,9 @@ RSpec.describe Pet, type: :model do
     it {should validate_presence_of :image}
     # it {should validate_presence_of :description}
     it {should validate_presence_of :age}
-    
+    # it {should belong_to :favorites}
+    it {should belong_to :shelter}
+
   end
 
   before :each do
@@ -23,6 +25,9 @@ RSpec.describe Pet, type: :model do
       city: "cat Town",
       state: "CT",
       zip: "99999"
+    )
+    @favorite1 = Favorite.create(
+      name: "my favorites"
     )
     @pet1 = Pet.create(
       name: "Remy",
