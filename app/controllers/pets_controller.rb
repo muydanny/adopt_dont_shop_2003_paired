@@ -3,7 +3,7 @@ class PetsController < ApplicationController
   def index
     @pets = Pet.pet_list(params)
     @shelter = Shelter.find(params[:id]) if !params[:id].nil?
-    @favorite = Favorite.new(session[:favorite])
+    # @favorite = Favorite.new(session[:favorite])
 
   end
 
