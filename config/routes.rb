@@ -26,7 +26,7 @@ Rails.application.routes.draw do
     get '/shelters/:id/pets', to: 'pets#index'
 # Routes for Paired
     get '/favorites', to: 'favorites#index'
-
+    patch '/favorites/:pet_id', to: 'favorites#update'
 
 
 end

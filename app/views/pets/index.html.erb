@@ -1,7 +1,8 @@
-
 <div class="content">
 
   <h1 class="header">PETS!</h1>
+  <a class="favorite_indicator" href="/favorites"> <%= @favorite.total_count %></a>
+  
   <% if !@shelter.nil? %>
     <h2>At <%= @shelter.name %></h2>
     <h3>Pet Count: <%= @shelter.pets.length %></h3>
@@ -23,6 +24,10 @@
       <p>Approximate Age: <%= pet.age %><p>
       <p>Sex: <%= pet.sex %><p>
       <p>Shelter: <a class="shelter-link hover" href="/shelters/<%= pet.shelter_id %>"><%= pet.shelter.name %></a></p>
+
+      <section id="pet-<%= pet.id %>" >
+          <%= button_to "Add Pet to Favorites", "/favorites/#{pet.id}", method: :patch, class: "grey hover" %>
+      </section><br>
 
       <a class="edit" href="/pets/<%= pet.id %>/edit">Update Pet</a><br><br>
 

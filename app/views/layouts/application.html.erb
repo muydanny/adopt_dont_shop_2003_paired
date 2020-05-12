@@ -9,6 +9,11 @@
   </head>
 
   <body>
+    <% flash.each do |type, message| %>
+    <section class=<%= type %>>
+      <p><%= message %></p>
+    </section>
+<% end %>
     <%= yield %>
     <div class="background">
       <img src="https://wallpaperaccess.com/full/783057.jpg" alt="kitten">
@@ -19,7 +24,7 @@
       <a href="/shelters">Shelters</a>
       <a href="/shelters/new">New Shelter</a>
       <a href="/pets">Pets</a>
-      <a class="favorite_indicator" href="/favorites">favorites_place_holder</a>
+      
     </div>
   </body>
 </html>

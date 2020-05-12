@@ -26,9 +26,7 @@ RSpec.describe Pet, type: :model do
       state: "CT",
       zip: "99999"
     )
-    @favorite1 = Favorite.create(
-      name: "my favorites"
-    )
+    
     @pet1 = Pet.create(
       name: "Remy",
       description: "I'll be honest, he's a killer",
