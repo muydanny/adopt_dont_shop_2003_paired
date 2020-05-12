@@ -13,13 +13,14 @@
       <p><a class="edit" href="/shelters/<%= shelter.id %>/edit">Update Shelter</a></p>
       <p><a class="edit" href="/shelters/<%= shelter.id %>/pets/new">Create Pet</a></p>
       <% if shelter.pets.count == 0 %>
-      <section class="delete-form">
-        <%= button_to "Delete #{shelter.name}", "/shelters/#{shelter.id}", method: :delete %>
-      </section>
+        <section class="delete-form">
+          <%= button_to "Delete #{shelter.name}", "/shelters/#{shelter.id}", method: :delete %>
+        </section>
       <% else %>
-      <p class="italics">Cannot delete shelter while it has pets</p>
+        <p class="italics">Cannot delete shelter while it has pets</p>
       <% end %>
 
+      <button><%= link_to 'Review this shelter!', "/shelters/#{shelter.id}/new_review" %></button>
   <% end %>
 
 </div>
