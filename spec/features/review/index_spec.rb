@@ -1,32 +1,28 @@
 require 'rails_helper'
 
-RSpec.describe "Shelter page", type: :feature do
+RSpec.describe "When I visit a shelter's show page,", type: :feature do
+  it "I see a list of reviews for that shelter" do
+    shelter = create(:shelter)
+    pet = create(:pet, shelter: shelter)
+    review = create(:review, shelter: shelter)
 
-  before :each do
-    @shelter1 = Shelter.create(
-      name: "the lab",
-      address: "123 Dog Street",
-      city: "Dog Town",
-      state: "DO",
-      zip: "12345"
-    )
-    @shelter2 = Shelter.create(
-      name: "starter kit-en",
-      address: "999 Felix Ave",
-      city: "Cat Alley",
-      state: "CA",
-      zip: "67890"
-    )
+    visit "/shelters/#{shelter_1.id}"
 
-    @pet1 = Pet.create(
-      name: "Remy",
-      age: "10",
-      sex: "male",
-      image: "https://thesmartcanine.com/wp-content/uploads/2019/09/labrador-pitbull-mix.jpg",
-      shelter_id: @shelter1.id
-    )
-
+    expect(page).to have_content(review.title)
+    expect(page).to have_content("#{shelter.rating}")
+    expect(page).to have_content("#{shelter.content}")
+    expect(page.find("img#pet-image-#{review.id}")).to be_truthy
   end
-  it "can see shelter name address city state and zip" do
+end
 
-    visit "/shelters/#{@shelter1.id}"
+
+
+
+# As a visitor,
+# When I visit a shelter's show page,
+# I see a list of reviews for that shelter
+# Each review will have:
+# - title
+# - rating
+# - content
+# - an optional picture
