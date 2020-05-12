@@ -12,8 +12,6 @@ class FavoritesController < ApplicationController
       session[:favorite] = @favorite.contents
       quantity = @favorite.count_of(pet.id)
       flash[:notice] = "You have added #{pet.name} to your favorites"
-    else
-      flash[:notice] = "You have already added #{pet.name} to your favorites"
     end
 
     if params[:page] == "show"
