@@ -1,4 +1,4 @@
-
+require 'rails_helper'
 
 RSpec.describe "When I fail to enter a title, rating, content" do
   it "I see a flash message indicating that I need to fill in form" do

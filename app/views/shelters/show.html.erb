@@ -24,6 +24,7 @@
     <% if review.image != "" %>
       <img id="<%= "review-image-#{review.id}" %>" src="<%= review.image %> image" />
     <% end %>
+    <%= link_to "Edit Review", "/shelters/#{@shelter.id}/reviews/#{review.id}/edit", method: "get" %>
     <br>
   <% end %>
 
