@@ -25,7 +25,7 @@
    font-family:"Arial";
    position: absolute;
    top:0;
-   margin-top: 40px;
+   margin-top: 80px;
  }
  .content {
    margin-left: 20px;
@@ -50,7 +50,7 @@
    width: 200vw;
   position:fixed;
  }
- .main_menu a {
+ .link {
   float:left;
   color:white;
   text-decoration:none;
@@ -144,4 +144,25 @@
   color: black;
   font-style: italic;
   font-size: 10px;
+}
+.grey {
+  color:white;
+  text-decoration:none;
+  padding: 5px 10px 5px 10px;
+  background-color: gray;
+}
+.favorite_indicator {
+  float:left;
+  color:gold;
+  text-decoration:none;
+  padding: 11px;
+}
+.notice{
+  background-color:#1a335f;
+  color:#2aa681;
+  border: 1px solid ;
+  font-family: "Arial";
+  font-weight: bold;
+  font-style: italic;
+  padding-left: 40px;
 }

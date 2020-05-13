@@ -6,4 +6,12 @@ FactoryBot.define do
     state { "CO" }
     zip { 80134 }
   end
+
+  factory :shelter1 do
+    name { "Barks and Crafts" }
+    address  { "123 K9 st" }
+    city { "Newfoundland" }
+    state { "DG" }
+    zip { 12345 }
+  end
 end
