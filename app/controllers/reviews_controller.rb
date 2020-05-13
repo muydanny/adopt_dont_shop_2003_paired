@@ -10,6 +10,7 @@ class ReviewsController < ApplicationController
     if @review.save
       redirect_to "/shelters/#{shelter_id[:id]}"
     else
+      flash.now[:error] = "Please fill out entire form"
       redirect_to "/shelters/#{shelter_id[:id]}/new_review"
     end
   end
