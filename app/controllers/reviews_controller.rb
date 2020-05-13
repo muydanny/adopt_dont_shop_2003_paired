@@ -27,6 +27,11 @@ class ReviewsController < ApplicationController
     end
   end
 
+  def destroy
+    Review.destroy(params[:review_id])
+    redirect_to "/shelters/#{shelter_id[:id]}", notice: "Successfully deleted review!"
+  end
+
   private
 
   def review_params
