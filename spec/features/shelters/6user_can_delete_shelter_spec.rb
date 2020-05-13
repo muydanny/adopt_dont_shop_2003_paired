@@ -10,16 +10,16 @@ RSpec.describe "Shleters can be deleted ", type: :feature do
       zip: "33333"
     )
   end
+
   it "can delete a shelter from index" do
     visit "/shelters"
     expect(page).to have_content("figaro figaro figaro")
     click_button "Delete #{@shelter1.name}"
     expect(current_path).to eq("/shelters")
     expect(page).not_to have_content("figaro figaro figaro")
-end
+  end
 
-it "can delete a shelter from show" do
-
+  it "can delete a shelter from show" do
     visit "/shelters/#{@shelter1.id}"
 
     expect(page).to have_content("Name: #{@shelter1.name}")

@@ -63,7 +63,7 @@ This project builds off of the solo project, Adopt Don't Shop. Between you and y
 ## User Stories
 
 ```
-[ ] done
+[ X ] done
 
 User Story 1, Deploy your application to Heroku
 
@@ -79,7 +79,7 @@ the application must be hosted on Heroku.
 Users will be able to share their experiences with a shelter through providing reviews. Users should be able to create a review with a title (Example: "Awesome place!"), a rating (out of 5), and content (Example: "Truly enjoyed our time working with this shelter. Staff was great, and we found our perfect pet!"). A user can also upload one picture (image url address) for their review as well, but this is optional.
 
 ```
-[ ] done
+[ X ] done
 
 User Story 2, Shelter Reviews
 
@@ -94,7 +94,7 @@ Each review will have:
 ```
 
 ```
-[ ] done
+[ X ] done
 
 User Story 3, Shelter Review Creation
 

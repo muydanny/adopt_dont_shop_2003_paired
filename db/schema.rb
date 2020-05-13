@@ -10,7 +10,16 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
+<<<<<<< HEAD
 ActiveRecord::Schema.define(version: 20200513024405) do
+=======
+
+ActiveRecord::Schema.define(version: 20200512205827) do
+
+# ActiveRecord::Schema.define(version: 20200512020737) do
+# This was a merge conflict but wasnt sure if deleting it was the best option. Otherwise version above is from mine
+
+>>>>>>> master
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -43,6 +52,17 @@ ActiveRecord::Schema.define(version: 20200513024405) do
     t.index ["shelter_id"], name: "index_pets_on_shelter_id"
   end
 
+  create_table "reviews", force: :cascade do |t|
+    t.string "title"
+    t.integer "rating"
+    t.string "content"
+    t.string "image"
+    t.bigint "shelter_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["shelter_id"], name: "index_reviews_on_shelter_id"
+  end
+
   create_table "shelters", force: :cascade do |t|
     t.string "name"
     t.string "address"
@@ -54,4 +74,5 @@ ActiveRecord::Schema.define(version: 20200513024405) do
   add_foreign_key "pet_apps", "apps"
   add_foreign_key "pet_apps", "pets"
   add_foreign_key "pets", "shelters"
+  add_foreign_key "reviews", "shelters"
 end
