@@ -14,6 +14,8 @@
 <br><br>
   <p><a class="edit" href="/shelters/<%= @shelter.id %>/edit">Update Shelter</a></p>
 
+  <%= link_to "Review this shelter!", "/shelters/#{@shelter.id}/new_review", method: "get" %>
+
   <% (@shelter.reviews || []).each do |review| %>
     <p><%= review.title %></p>
     <p><%= review.content %></p>
