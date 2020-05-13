@@ -6,12 +6,12 @@ RSpec.describe "When I visit a shelter's show page,", type: :feature do
     pet = create(:pet, shelter: shelter)
     review = create(:review, shelter: shelter)
 
-    visit "/shelters/#{shelter_1.id}"
+    visit "/shelters/#{shelter.id}"
 
     expect(page).to have_content(review.title)
-    expect(page).to have_content("#{shelter.rating}")
-    expect(page).to have_content("#{shelter.content}")
-    expect(page.find("img#pet-image-#{review.id}")).to be_truthy
+    expect(page).to have_content("#{review.rating}")
+    expect(page).to have_content("#{review.content}")
+    expect(page.find("img#review-image-#{review.id}")).to be_truthy
   end
 end
 
