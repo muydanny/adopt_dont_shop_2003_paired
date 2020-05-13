@@ -15,10 +15,11 @@
       <%= label_tag :female %><br>
       <%= radio_button_tag :sex, :female , "#{@pet.sex}"%><br><br>
       <%= label_tag :male %><br>
-      <%= radio_button_tag :sex, :male, "#{@pet.name}" %><br>
-      <%= hidden_field_tag :adoptable, "#{@pet.adoptable}" %>
+      <%= radio_button_tag :sex, :male, "#{@pet.sex}" %><br>
+      <%= hidden_field_tag :adoptable, "#{@pet.adoptable}" %><br>
       <%= submit_tag "Update Pet" %>
     <%end %>
+
   </section>
 
 

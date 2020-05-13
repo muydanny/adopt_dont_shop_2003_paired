@@ -1,9 +1,42 @@
 <div class="content">
 
-  <h1>NEW APPLICATION</h1>
+  <h1 class="header">New Adoption Application</h1>
 
-  <section class="bold">
+  <section id="new-app" class="bold">
+    <%= form_tag "/apps" do %>
 
+  <% @favorite_pets.each do |pet| %>
+  <section id="<%= pet.id %>-info" class="pet-list">
+
+      <img class="pet-image-small" src="<%= pet.image %>" alt="<%= pet.name %> image"> <p>
+      <h2><a id="<%= pet.name %>"class="pet-link hover" href="/pets/<%= pet.id %>"><%= pet.name %></a></h2>
+      <br>
+
+        <%= label_tag "Select pet for application" %><br>
+        <%= radio_button_tag "#{pet.id}", "#{pet.id}" %><br><br>
+
+  </section>
+  <br>
+
+  <% end %>
+
+      
+      <%= label_tag :name %><br>
+      <%= text_field_tag :name %><br><br>
+      <%= label_tag :address %><br>
+      <%= text_field_tag :address %><br><br>
+      <%= label_tag :city %><br>
+      <%= text_field_tag :city %><br><br>
+      <%= label_tag :state %><br>
+      <%= text_field_tag :state %><br><br>
+      <%= label_tag :zip %><br>
+      <%= text_field_tag :zip %><br><br>
+      <%= label_tag :phone_number %><br>
+      <%= text_field_tag :phone_number %><br><br>
+      <%= label_tag :description %><br>
+      <%= text_area_tag :description %><br><br>
+      <%= submit_tag "Submit my application", class: "grey hover"%><br><br>
+    <%end %>
   </section>
 
 
