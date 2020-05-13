@@ -28,9 +28,23 @@ RSpec.describe "New Application", type: :feature do
       click_button "New application for favorite pets"
     end
     expect(current_path).to eq("/apps/new")
-save_and_open_page
-    # fill_in
 
+    select("#{@pet1.name}")
+    fill_in :name, with: "Roger"
+    fill_in :address, with: "101 Dalmation Plantation"
+    fill_in :city, with: "London"
+    fill_in :state, with: "UK"
+    fill_in :zip, with: "10101"
+    fill_in :phone_number, with: "101-101-1010"
+    fill_in :description, with: "I'm a dog lover"
+    click_button "Submit my application"
+    @app = App.last
+    expect(@app.pets).to eq([@pet1])
+    expect(@pet1.apps).to eq([@app])
+    expect(current_path).to eq("/favorites")
+    expect(page).to have_content("Your application for the selected pets has been submitted")
+    expect(page).not_to have_content("#{@pet1.name}")
+    expect(page).to have_content("#{@pet2.name}")
 
   end
 
