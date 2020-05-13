@@ -8,6 +8,7 @@ class CreatePets < ActiveRecord::Migration[5.1]
       t.string :age
       t.string :sex
       t.string :shelter
+
     end
   end
 end

@@ -7,7 +7,13 @@ RSpec.describe Pet, type: :model do
     # it {should validate_presence_of :description}
     it {should validate_presence_of :age}
     # it {should belong_to :favorites}
-    it {should belong_to :shelter}
+
+  end
+  describe "relationships" do
+
+  it {should belong_to :shelter}
+  it {should have_many :pet_apps}
+  it {should have_many(:apps).through(:pet_apps)}
 
   end
 
@@ -26,7 +32,7 @@ RSpec.describe Pet, type: :model do
       state: "CT",
       zip: "99999"
     )
-    
+
     @pet1 = Pet.create(
       name: "Remy",
       description: "I'll be honest, he's a killer",
