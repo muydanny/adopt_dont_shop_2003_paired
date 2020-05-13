@@ -16,11 +16,15 @@
 
   <%= link_to "Review this shelter!", "/shelters/#{@shelter.id}/new_review", method: "get" %>
 
+  <h2>Reviews for <%= @shelter.name.capitalize %></h2>
   <% (@shelter.reviews || []).each do |review| %>
-    <p><%= review.title %></p>
+    <h3><u><%= review.title %></u></h3>
     <p><%= review.content %></p>
-    <p><%= review.rating %></p>
-    <img id="<%= "review-image-#{review.id}" %>" src="<%= review.image %> image" />
+    <p><b>Rating:</b> <%= review.rating %></p>
+    <% if review.image != "" %>
+      <img id="<%= "review-image-#{review.id}" %>" src="<%= review.image %> image" />
+    <% end %>
+    <br>
   <% end %>
 
   <% if @shelter.pets.count == 0 %>

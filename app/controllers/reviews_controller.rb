@@ -8,10 +8,9 @@ class ReviewsController < ApplicationController
     @review = Review.create(shelter_id: shelter_id[:id])
     @review.update(review_params)
     if @review.save
-      redirect_to "/shelters/#{shelter_id[:id]}"
+      redirect_to "/shelters/#{shelter_id[:id]}", notice: "Successfully created review! Thanks dog."
     else
-      flash.now[:error] = "Please fill out entire form"
-      redirect_to "/shelters/#{shelter_id[:id]}/new_review"
+      redirect_to "/shelters/#{shelter_id[:id]}/new_review" , notice: "Please fill out entire form"
     end
   end
 
