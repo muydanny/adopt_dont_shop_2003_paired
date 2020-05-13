@@ -13,14 +13,14 @@
       <br>
 
         <%= label_tag "Select pet for application" %><br>
-        <%= radio_button_tag "#{pet.id}", "#{pet.id}" %><br><br>
+        <%= radio_button_tag :pet_id, "#{[pet.id]}" %><br><br>
 
   </section>
   <br>
 
   <% end %>
 
-      
+
       <%= label_tag :name %><br>
       <%= text_field_tag :name %><br><br>
       <%= label_tag :address %><br>

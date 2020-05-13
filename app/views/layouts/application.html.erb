@@ -10,10 +10,10 @@
 
   <body>
     <% flash.each do |type, message| %>
-    <section class=<%= type %>>
-      <p><%= message %></p>
-    </section>
-<% end %>
+      <section class=<%= type %>>
+        <p><%= message %></p>
+      </section>
+    <% end %>
     <%= yield %>
     <div class="background">
       <img src="https://wallpaperaccess.com/full/783057.jpg" alt="kitten">
