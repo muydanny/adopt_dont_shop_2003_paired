@@ -49,6 +49,8 @@ RSpec.describe "New Application", type: :feature do
       click_button "New application for favorite pets"
     end
     expect(current_path).to eq("/apps/new")
+
+
   end
 
 end
