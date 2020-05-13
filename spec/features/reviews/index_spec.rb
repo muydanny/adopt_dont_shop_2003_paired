@@ -1,7 +1,7 @@
 require 'rails_helper'
 
 RSpec.describe "When I visit a shelter's show page,", type: :feature do
-  it "I see a list of reviews for that shelter" do
+  xit "I see a list of reviews for that shelter" do
     shelter = create(:shelter)
     pet = create(:pet, shelter: shelter)
     review = create(:review, shelter: shelter)

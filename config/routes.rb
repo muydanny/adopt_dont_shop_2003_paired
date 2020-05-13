@@ -13,6 +13,7 @@ Rails.application.routes.draw do
     get '/shelters/:id/new_review', to: "reviews#new_review"
     post '/shelters/:id/review', to: "reviews#create"
 
+
     get '/pets', to: 'pets#index'
     get '/shelters/:id/pets', to: 'pets#index'
     get '/shelters/:id/pets/new', to: 'pets#new'
@@ -28,7 +29,9 @@ Rails.application.routes.draw do
     get '/shelters/:id/pets', to: 'pets#index'
 # Routes for Paired
     get '/favorites', to: 'favorites#index'
-
+    patch '/favorites/:pet_id', to: 'favorites#update'
+    delete '/favorites/:pet_id', to: 'favorites#destroy'
+    delete '/favorites', to: 'favorites#destroy_all'
 
 
 

@@ -10,10 +10,18 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
+
 ActiveRecord::Schema.define(version: 20200512205827) do
+
+# ActiveRecord::Schema.define(version: 20200512020737) do
+# This was a merge conflict but wasnt sure if deleting it was the best option. Otherwise version above is from mine
+
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "favorites", force: :cascade do |t|
+  end
 
   create_table "pets", force: :cascade do |t|
     t.string "image"
