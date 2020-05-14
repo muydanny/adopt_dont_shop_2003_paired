@@ -30,15 +30,18 @@
     <% if !@apps.empty? %>
       <section id="pets-apps">
         <h2>Pets with active applications</h2>
-        <% @apps.each do |app| %>
-          <% app.pets.each do |pet| %>
+        <% @pets.each do |pet| %>
+          <% if !pet.apps.empty? %>
           <section id="app-<%= pet.id %>">
             <%= link_to "#{pet.name}", "/pets/#{pet.id}"  %>
           </section>
           <% end %>
+
         <% end %>
       </section>
     <% end %>
+
+
 
   <% end %><br><br>
 
