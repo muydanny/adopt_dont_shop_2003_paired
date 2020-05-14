@@ -17,7 +17,7 @@
 
     <% end %><br><br>
 
-  <% if @favorite.contents[@pet.id.to_s].nil? || @favorite.contents[@pet.id.to_s] == 0 %>
+  <% if favorite.contents[@pet.id.to_s].nil? || favorite.contents[@pet.id.to_s] == 0 %>
   <section id="fav-<%= @pet.id %>" >
       <%= button_to "Add #{@pet.name} to favorites", "/favorites/#{@pet.id}?page=show", method: :patch, class: "grey hover" %>
   </section><br>
