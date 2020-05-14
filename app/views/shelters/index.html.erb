@@ -20,7 +20,7 @@
         <p class="italics">Cannot delete shelter while it has pets</p>
       <% end %>
 
-      <button><%= link_to 'Review this shelter!', "/shelters/#{shelter.id}/new_review" %></button>
+      <%= link_to 'Review this shelter!', "/shelters/#{shelter.id}/new_review", class: "grey hover" %>
   <% end %>
 
 </div>
