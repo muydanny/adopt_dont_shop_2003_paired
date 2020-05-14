@@ -1,7 +1,7 @@
 class AppsController < ApplicationController
 
   def new
-    @favorite_pets = @favorite.favorite_pets
+    @favorite_pets = favorite.favorite_pets
   end
 
   def create

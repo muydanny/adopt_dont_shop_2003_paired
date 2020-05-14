@@ -1,16 +1,18 @@
 class FavoritesController < ApplicationController
 
   def index
-    @favorite_pets = @favorite.favorite_pets
+    @favorite_pets = favorite.favorite_pets
+    @apps = App.all
+    @pets = Pet.all
   end
 
   def update
     pet = Pet.find(params[:pet_id])
-    @favorite = Favorite.new(session[:favorite])
+    favorite = Favorite.new(session[:favorite])
     if session[:favorite].nil? || session[:favorite][pet.id.to_s].nil?
-      @favorite.add_pet(pet.id)
-      session[:favorite] = @favorite.contents
-      quantity = @favorite.count_of(pet.id)
+      favorite.add_pet(pet.id)
+      session[:favorite] = favorite.contents
+      quantity = favorite.count_of(pet.id)
       flash[:notice] = "You have added #{pet.name} to your favorites"
     end
 

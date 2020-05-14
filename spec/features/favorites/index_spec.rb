@@ -142,6 +142,59 @@ RSpec.describe "Favorite Indicator", type: :feature do
 
   end
 
+  it "has a section listing pets with atleast 1 application, pet names are links" do
+
+    visit '/pets'
+    within("#fav-#{@pet1.id}") do
+      click_button "Add #{@pet1.name} to favorites"
+    end
+    expect(page).to have_css(".favorite_indicator", text: 1)
+
+    within("#fav-#{@pet2.id}") do
+      click_button "Add #{@pet2.name} to favorites"
+    end
+    expect(page).to have_css(".favorite_indicator", text: 2)
+
+    find('.favorite_indicator').click
+    expect(current_path).to eq("/favorites")
+
+    within(".new-application") do
+      click_button "New application for favorite pets"
+    end
+    expect(current_path).to eq("/apps/new")
+    # both pets added to favorites
+    select("#{@pet1.name}")
+    fill_in :name, with: "Roger"
+    fill_in :address, with: "101 Dalmation Plantation"
+    fill_in :city, with: "London"
+    fill_in :state, with: "UK"
+    fill_in :zip, with: "10101"
+    fill_in :phone_number, with: "101-101-1010"
+    fill_in :description, with: "I'm a dog lover"
+
+    click_button "Submit my application"
+    #app for pet 1 complete, redirect_to "/favorites"
+    @app = App.last
+
+    expect(@app.pets).to eq([@pet1])
+    expect(@pet1.apps).to eq([@app])
+    expect(current_path).to eq("/favorites")
+    expect(page).to have_content("Your application for the selected pets has been submitted")
+    expect(page).not_to have_css("##{@pet1.id}-info")
+    within("##{@pet2.id}-info")do
+      expect(page).to have_content("#{@pet2.name}")
+    end
+    #pet 1 has been remvoed from favorites, while pet 2 is still in favorites
+
+    within("#pets-apps")do
+      expect(page).to have_content("#{@pet1.name}")
+      expect(page).to have_link("#{@pet1.name}")
+      click_link("#{@pet1.name}")
+    end
+    expect(current_path).to eq("/pets/#{@pet1.id}")
+
+  end
+
 
 
 end
