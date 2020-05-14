@@ -6,14 +6,15 @@
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
 
-Shelter.create(name: "the lab", address: "666 dog Ave", city: "ruff town", state: "CO", zip: 80223)
-Shelter.create(name: "Pick a Pet", address: "1234 Fake St", city: "Denver", state: "CO", zip: 80209)
-Shelter.create(name: "Pets!", address: "1111 Random Ave", city: "Denver", state: "CO", zip: 80223)
-shelter_1 = Shelter.create(name: "Lizards R US", address: "900 S Cir", city: "Denver", state: "CO", zip: 80205)
-Shelter.create(name: "Lions and House Cats Only", address: "44 Elm St", city: "Denver", state: "CO", zip: 81005)
-Shelter.create(name: "Big Al's House", address: "605 8th St", city: "Denver", state: "CO", zip: 83023)
-Shelter.create(name: "Paws, Prints, and Pies", address: "333 N St", city: "Denver", state: "CO", zip: 84223)
-shelter_2 = Shelter.create(name: "Free Animals", address: "101 Pearl St", city: "Denver", state: "CO", zip: 80123)
+Shelter.create(name: "Pick a Pet", address: "1234 Fake St", city: "Denver", state: "CO", zip: "80209")
+Shelter.create(name: "Pets!", address: "1111 Random Ave", city: "Denver", state: "CO", zip: "80223")
+shelter_1 = Shelter.create(name: "the lab", address: "666 dog Ave", city: "ruff town", state: "DG", zip: "12345")
+Shelter.create(name: "Lions and House Cats Only", address: "44 Elm St", city: "Denver", state: "CO", zip: "81005")
+Shelter.create(name: "Big Al's House", address: "605 8th St", city: "Denver", state: "CO", zip: "83023")
+Shelter.create(name: "Paws, Prints, and Pies", address: "333 N St", city: "Denver", state: "CO", zip: "84223")
+shelter_2 = Shelter.create(name: "Free Animals", address: "101 Pearl St", city: "Denver", state: "CO", zip: "80123")
+
+
 
 shelter1 = Shelter.create(
   name: "the lab",
