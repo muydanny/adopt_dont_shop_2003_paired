@@ -9,11 +9,7 @@
   </head>
 
   <body>
-    <% flash.each do |type, message| %>
-      <section class=<%= type %>>
-        <p><%= message %></p>
-      </section>
-    <% end %>
+
     <%= yield %>
     <div class="background">
       <img src="https://wallpaperaccess.com/full/783057.jpg" alt="kitten">
@@ -27,5 +23,10 @@
       <a class="favorite_indicator" href="/favorites"> <%= favorite.total_count %></a>
 
     </div>
+    <% flash.each do |type, message| %>
+      <section class=<%= type %>>
+        <p class="user-message"><%= message %></p>
+      </section>
+    <% end %>
   </body>
 </html>

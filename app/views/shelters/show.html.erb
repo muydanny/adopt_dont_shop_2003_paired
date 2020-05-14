@@ -24,8 +24,7 @@
     <% if review.image != "" %>
       <img class = "pet-image-small" id="<%= "review-image-#{review.id}" %>" src="<%= review.image %>"/>
     <% end %>
-    <br>
-    <br>
+    <br><br>
     <%= link_to "Edit Review", "/shelters/#{@shelter.id}/reviews/#{review.id}/edit", method: "get", class: "grey hover" %>
     <%= link_to "Delete Review", "/shelters/#{@shelter.id}/reviews/#{review.id}", method: "delete", class: "grey hover" %>
     <br>
