@@ -12,7 +12,7 @@ class AppsController < ApplicationController
       PetApp.create(pet_id: id, app: @app)
       session[:favorite].delete(id.to_s)
     end
-
+    binding.pry
     flash[:notice] = "Your application for the selected pets has been submitted"
     redirect_to '/favorites'
 
@@ -28,6 +28,7 @@ class AppsController < ApplicationController
                   :zip,
                   :phone_number,
                   :description,
+                  :approved
                   )
   end
 

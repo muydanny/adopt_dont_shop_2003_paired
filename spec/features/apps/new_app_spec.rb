@@ -37,8 +37,11 @@ RSpec.describe "New Application", type: :feature do
     fill_in :zip, with: "10101"
     fill_in :phone_number, with: "101-101-1010"
     fill_in :description, with: "I'm a dog lover"
+
     click_button "Submit my application"
+
     @app = App.last
+
     expect(@app.pets).to eq([@pet1])
     expect(@pet1.apps).to eq([@app])
     expect(current_path).to eq("/favorites")

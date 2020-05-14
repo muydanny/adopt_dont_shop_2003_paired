@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20200513215451) do
+ActiveRecord::Schema.define(version: 20200514002139) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -23,7 +23,7 @@ ActiveRecord::Schema.define(version: 20200513215451) do
     t.string "zip"
     t.string "phone_number"
     t.string "description"
-    t.boolean "approved"
+    t.string "approved"
   end
 
   create_table "pet_apps", force: :cascade do |t|
