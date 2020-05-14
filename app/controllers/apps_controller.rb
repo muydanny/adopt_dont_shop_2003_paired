@@ -7,15 +7,17 @@ class AppsController < ApplicationController
   def create
     @app = App.create(app_params)
 
-
-    params[:pet_ids].each do |id|
-      PetApp.create(pet_id: id, app: @app)
-      session[:favorite].delete(id.to_s)
+    if @app.save
+      params[:pet_ids].each do |id|
+        PetApp.create(pet_id: id, app: @app)
+        session[:favorite].delete(id.to_s)
+      end
+      flash[:notice] = "Your application for the selected pets has been submitted"
+      redirect_to '/favorites'
+    else
+      flash[:notice] = "You must complete the order form"
+      redirect_to '/apps/new'
     end
-    binding.pry
-    flash[:notice] = "Your application for the selected pets has been submitted"
-    redirect_to '/favorites'
-
   end
 
   private
