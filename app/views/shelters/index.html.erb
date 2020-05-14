@@ -7,18 +7,25 @@
 
 
   <% @shelters.each do |shelter| %>
+    <section id="shelter-<%= shelter.id %>">
 
       <h2><a class="shelter-link" href="/shelters/<%= shelter.id %>"><%= shelter.name %></a></h2>
       <p>Pet Count: <%= shelter.pets.count %></p>
       <p><a class="edit" href="/shelters/<%= shelter.id %>/edit">Update Shelter</a></p>
       <p><a class="edit" href="/shelters/<%= shelter.id %>/pets/new">Create Pet</a></p>
 
+      <% if shelter.pending? %>
+        <p class="italics">
+          shelters with adoption pending pets cannot be deleted
+        </p><br>
+      <% else %>
         <section class="delete-form">
           <%= button_to "Delete #{shelter.name}", "/shelters/#{shelter.id}", method: :delete %>
         </section><br> <br>
-
+      <% end %>
 
       <%= link_to 'Review this shelter!', "/shelters/#{shelter.id}/new_review", class: "grey hover" %>
+    </section>
   <% end %>
 
 

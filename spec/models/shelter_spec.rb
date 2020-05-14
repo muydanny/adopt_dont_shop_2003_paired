@@ -91,4 +91,62 @@ RSpec.describe Shelter, type: :model do
     expect(Shelter.shelter_list(params)).to eq([@shelter2, @shelter1, @shelter3])
   end
 
+  it "should identify if shelters have adopoption pending pets" do
+
+
+
+    @shelter1 = Shelter.create(
+      name: "ZZZZZ",
+      address: "123 Dog Street",
+      city: "Dog Town",
+      state: "DO",
+      zip: "12345"
+    )
+    @shelter2 = Shelter.create(
+      name: "aaaa",
+      address: "999 Felix Ave",
+      city: "Cat Alley",
+      state: "CA",
+      zip: "67890"
+    )
+    @shelter3 = Shelter.create(
+      name: "bbbb",
+      address: "999 Felix Ave",
+      city: "Cat Alley",
+      state: "CA",
+      zip: "67890"
+    )
+    @pet1 = Pet.create(
+      name: "many pets",
+      age: "4",
+      sex: "male",
+      description: "a bit mischevious",
+      image: "https://thesmartcanine.com/wp-content/uploads/2019/09/sealyham-terrier-small-dog.jpg",
+      shelter_id: @shelter1.id,
+      adoptable: true
+    )
+    @pet2 = Pet.create(
+      name: "Penny",
+      age: "55",
+      sex: "female",
+      description: "known to eat goose poop",
+      image: "https://www.rover.com/blog/wp-content/uploads/2019/05/puppy-in-bowl.jpg",
+      shelter_id: @shelter1.id,
+      adoptable: false
+    )
+    @pet3 = Pet.create(
+      name: "Aggie",
+      age: "25",
+      sex: "female",
+      description: "a rabbit",
+      image: "https://www.rover.com/blog/wp-content/uploads/2019/05/puppy-in-bowl.jpg",
+      shelter_id: @shelter2.id,
+      adoptable: false
+    )
+
+    expect(@shelter1.pending?).to eq(true)
+    expect(@shelter2.pending?).to eq(true)
+    expect(@shelter3.pending?).to eq(false)
+  end
+
 end
