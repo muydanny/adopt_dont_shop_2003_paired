@@ -3,6 +3,8 @@ class ApplicationController < ActionController::Base
 
   before_action :get_favorite#, only: [:new, :create]
 
+  add_flash_types :error
+
   private
 
    def get_favorite
