@@ -27,23 +27,23 @@
       <%= button_to "New application for favorite pets", "/apps/new",  method: :get, class: "grey hover" %>
     </section>
 
-    <% if !@apps.empty? %>
-      <section id="pets-apps">
-        <h2>Pets with active applications</h2>
-        <% @pets.each do |pet| %>
-          <% if !pet.apps.empty? %>
-          <section id="app-<%= pet.id %>">
-            <%= link_to "#{pet.name}", "/pets/#{pet.id}", class: "pet-link" %>
-          </section><br>
-          <% end %>
-
-        <% end %>
-      </section>
-    <% end %>
 
 
 
   <% end %><br><br>
+  <%  %>
+  <% if !@apps.empty? %>
+  <section id="pets-apps">
+    <h2>Pets with active applications</h2>
+    <% @pets.each do |pet| %>
+    <% if !pet.apps.empty? %>
+    <section id="app-<%= pet.id %>">
+      <%= link_to "#{pet.name}", "/pets/#{pet.id}", class: "pet-link" %>
+    </section><br>
+    <% end %>
 
+    <% end %>
+  </section>
+  <% end %>
 
 </div>
