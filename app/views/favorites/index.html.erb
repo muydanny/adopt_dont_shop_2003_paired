@@ -12,7 +12,7 @@
         <h2><a id="<%= pet.name %>"class="pet-link hover" href="/pets/<%= pet.id %>"><%= pet.name %></a></h2>
         <br>
         <section id="delete-<%= pet.id %>">
-          <%= button_to "Remove #{pet.name} from favorites", "/favorites/#{pet.id}?page=favorites", method: :delete, class: "grey hoever" %>
+          <%= button_to "Remove #{pet.name} from favorites", "/favorites/#{pet.id}?page=favorites", method: :delete, class: "grey hover" %>
         </section>
     </section>
     <br>
@@ -20,10 +20,14 @@
     <% end %>
 
     <section id="remove-all-from-fav">
-      <%= button_to "Remove all pets from favorites", "/favorites?remove_all=true", method: :delete, class: "grey hoever" %>
+      <%= button_to "Remove all pets from favorites", "/favorites?remove_all=true", method: :delete, class: "grey hover" %>
+    </section><br>
+
+    <section class="new-application">
+      <%= button_to "New application for favorite pets", "/apps/new",  method: :get, class: "grey hover" %>
     </section>
 
-  <% end %>
+  <% end %><br><br>
 
 
 </div>

@@ -140,6 +140,9 @@
 .bold {
   font-weight: bold;
 }
+.italic {
+  font-style:italic;
+}
 .italics {
   color: black;
   font-style: italic;

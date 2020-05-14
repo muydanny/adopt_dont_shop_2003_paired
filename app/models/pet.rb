@@ -1,6 +1,8 @@
 class Pet < ApplicationRecord
   belongs_to :shelter
-  # belongs_to :pet
+  has_many :pet_apps
+  has_many :apps, through: :pet_apps
+
   validates_presence_of :name
   validates_presence_of :image
   validates_presence_of :age
