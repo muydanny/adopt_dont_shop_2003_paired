@@ -22,7 +22,7 @@
     <p><%= review.content %></p>
     <p><b>Rating:</b> <%= review.rating %></p>
     <% if review.image != "" %>
-      <img id="<%= "review-image-#{review.id}" %>" src="<%= review.image %>" />
+      <img class = "pet-image-small" id="<%= "review-image-#{review.id}" %>" src="<%= review.image %>"/>
     <% end %>
     <br><br>
     <%= link_to "Edit Review", "/shelters/#{@shelter.id}/reviews/#{review.id}/edit", method: "get", class: "grey hover" %>
