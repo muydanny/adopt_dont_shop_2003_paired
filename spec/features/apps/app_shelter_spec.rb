@@ -87,11 +87,33 @@ RSpec.describe "Shelter App relationsip", type: :feature do
     expect(page).not_to have_css("#shelter-#{@shelter2.id}")
     expect(page).not_to have_content("#{@shelter2.name}")
 
+  end
 
+  it "if a shelter is deleted, its pets are deleted" do
+    visit "/shelters"
+    pet_ids = Pet.all.map{|pet| pet[:id]}
+    shelter_ids = Shelter.all.map{|shelter| shelter[:id]}
 
+    expect(pet_ids.include?(@pet1.id)).to eq(true)
+    expect(pet_ids.include?(@pet2.id)).to eq(true)
+    expect(pet_ids.include?(@pet3.id)).to eq(true)
+    expect(shelter_ids.include?(@shelter1.id)).to eq(true)
+    expect(shelter_ids.include?(@shelter2.id)).to eq(true)
+    expect(shelter_ids.include?(@shelter3.id)).to eq(true)
 
+    within("#shelter-#{@shelter2.id}")do
+      click_button "Delete #{@shelter2.name}"
+    end
 
+    pet_ids = Pet.all.map{|pet| pet[:id]}
+    shelter_ids = Shelter.all.map{|shelter| shelter[:id]}
 
+    expect(pet_ids.include?(@pet1.id)).to eq(true)
+    expect(pet_ids.include?(@pet2.id)).to eq(false)
+    expect(pet_ids.include?(@pet3.id)).to eq(false)
+    expect(shelter_ids.include?(@shelter1.id)).to eq(true)
+    expect(shelter_ids.include?(@shelter2.id)).to eq(false)
+    expect(shelter_ids.include?(@shelter3.id)).to eq(true)
 
   end
 end

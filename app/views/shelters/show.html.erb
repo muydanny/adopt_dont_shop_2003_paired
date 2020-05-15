@@ -18,17 +18,21 @@
 
   <h2>Reviews for <%= @shelter.name.capitalize %></h2>
   <% (@shelter.reviews || []).each do |review| %>
-    <h3><u><%= review.title %></u></h3>
-    <p><%= review.content %></p>
-    <p><b>Rating:</b> <%= review.rating %></p>
-    <% if review.image != "" %>
+    <section id="review-<%= review.id %>">
+
+      <h3><u><%= review.title %></u></h3>
+      <p><%= review.content %></p>
+      <p><b>Rating:</b> <%= review.rating %></p>
+      <% if review.image != "" %>
       <img class = "pet-image-small" id="<%= "review-image-#{review.id}" %>" src="<%= review.image %>"/>
-    <% end %>
-    <br><br>
-    <%= link_to "Edit Review", "/shelters/#{@shelter.id}/reviews/#{review.id}/edit", method: "get", class: "grey hover" %>
-    <%= link_to "Delete Review", "/shelters/#{@shelter.id}/reviews/#{review.id}", method: "delete", class: "grey hover" %>
-    <br>
-  <% end %>
+      <% end %>
+      <br><br>
+      <%= link_to "Edit Review", "/shelters/#{@shelter.id}/reviews/#{review.id}/edit", method: "get", class: "grey hover" %>
+      <%= link_to "Delete Review", "/shelters/#{@shelter.id}/reviews/#{review.id}", method: "delete", class: "grey hover" %>
+      <br>
+    </section>
+      <% end %>
+
 
   <% if @shelter.pets.count == 0 %>
   <section class="delete-form">

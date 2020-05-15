@@ -29,4 +29,5 @@ class Shelter < ApplicationRecord
   def pending?
     pets.any? {|pet| pet.adoptable == false}
   end
+
 end
