@@ -25,4 +25,19 @@ class Shelter < ApplicationRecord
       all
     end
   end
+
+  def pending?
+    pets.any? {|pet| pet.adoptable == false}
+  end
+
+  def average_review_rating
+    return "n/a" if reviews.empty?
+    reviews.average(:rating).round(1)
+  end
+
+  def app_count
+    pet_ids = pets.pluck(:id)
+    PetApp.where(pet_id: pet_ids).select(:app_id).distinct.count
+  end
+
 end
