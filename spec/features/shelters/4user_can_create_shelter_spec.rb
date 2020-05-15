@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-RSpec.describe "Shleters edit page", type: :feature do
+RSpec.describe "Shleters create page", type: :feature do
   it "can create a shelter" do
 
     visit "/shelters"
@@ -16,11 +16,12 @@ RSpec.describe "Shleters edit page", type: :feature do
     fill_in "zip", with: "99999"
     click_on "Create Shelter"
 
+    last_shelter = Shelter.last
     expect(page).to have_content("Barks and Crafts")
+    expect(page).to have_content("You have created #{last_shelter.name}")
 
     click_link "Barks and Crafts"
-    
-    last_shelter = Shelter.last
+
 
     expect(current_path).to eq("/shelters/#{last_shelter.id}")
 
@@ -29,6 +30,21 @@ RSpec.describe "Shleters edit page", type: :feature do
     expect(page).to have_content("City: Dog town")
     expect(page).to have_content("State: DG")
     expect(page).to have_content("Zip: 99999")
+
+
+  end
+
+  it "displays notice when fields are not filled in" do
+    visit "/shelters/new"
+
+    fill_in "name", with: "Barks and Crafts"
+    fill_in "address", with: "123 Ruff St"
+
+    click_on "Create Shelter"
+
+
+    expect(current_path).to eq("/shelters/new")
+    expect(page).to have_content("You must fill out all fields")
 
 
   end

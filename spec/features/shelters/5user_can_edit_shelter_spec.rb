@@ -22,6 +22,7 @@ RSpec.describe "Shleters edit page", type: :feature do
     fill_in "zip", with: "99999"
     click_on "Update Shelter"
 
+    expect(page).to have_content("You have updated Barks and Crafts")
     expect(current_path).to eq("/shelters/#{@shelter1.id}")
 
     expect(page).to have_content("Name: Barks and Crafts")
@@ -29,6 +30,22 @@ RSpec.describe "Shleters edit page", type: :feature do
     expect(page).to have_content("City: Dog town")
     expect(page).to have_content("State: DG")
     expect(page).to have_content("Zip: 99999")
+  end
+
+  it "gives notice when all fields are not filled out" do
+    visit "/shelters/#{@shelter1.id}/edit"
+
+    fill_in "name", with: "Barks and Crafts"
+    fill_in "address", with: "123 Ruff St"
+    fill_in "city", with: ""
+    fill_in "state", with: ""
+    fill_in "zip", with: "99999"
+    click_on "Update Shelter"
+
+    expect(page).to have_content("You must fill out all fields")
+    expect(current_path).to eq("/shelters/#{@shelter1.id}/edit")
+
+
   end
 
   it "can go to edit page from index" do
