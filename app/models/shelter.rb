@@ -30,4 +30,13 @@ class Shelter < ApplicationRecord
     pets.any? {|pet| pet.adoptable == false}
   end
 
+  def average_review_rating
+    return "n/a" if reviews.empty?
+    reviews.average(:rating).round(1)
+  end
+
+  def app_count
+    binding.pry
+  end
+
 end

@@ -11,6 +11,8 @@
 
       <h2><a class="shelter-link" href="/shelters/<%= shelter.id %>"><%= shelter.name %></a></h2>
       <p>Pet Count: <%= shelter.pets.count %></p>
+      <p>Average Review Rating: <%= shelter.average_review_rating %></p>
+      <p>Application Count: <%= shelter.app_count %></p>
       <p><a class="edit" href="/shelters/<%= shelter.id %>/edit">Update Shelter</a></p>
       <p><a class="edit" href="/shelters/<%= shelter.id %>/pets/new">Create Pet</a></p>
 
