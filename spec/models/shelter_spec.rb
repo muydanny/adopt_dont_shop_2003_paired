@@ -188,8 +188,8 @@ RSpec.describe Shelter, type: :model do
     PetApp.create(pet: pet22, app: app2)
 
 
-    expect(shelter1.app_count).to eq(4)
-    expect(shelter2.app_count).to eq(2)
+    expect(shelter1.app_count).to eq(2)
+    expect(shelter2.app_count).to eq(1)
     expect(shelter3.app_count).to eq(0)
   end
 

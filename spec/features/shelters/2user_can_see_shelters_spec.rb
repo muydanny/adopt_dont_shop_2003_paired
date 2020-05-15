@@ -110,12 +110,12 @@ RSpec.describe "Shleters index page", type: :feature do
     within("#shelter-#{shelter1.id}")do
       expect(page).to have_content("Pet Count: 3")
       expect(page).to have_content("Average Review Rating: 3.3")
-      expect(page).to have_content("Application Count: 4")
+      expect(page).to have_content("Application Count: 2")
     end
     within("#shelter-#{shelter2.id}")do
       expect(page).to have_content("Pet Count: 3")
       expect(page).to have_content("Average Review Rating: 3")
-      expect(page).to have_content("Application Count: 2")
+      expect(page).to have_content("Application Count: 1")
 
     end
     within("#shelter-#{shelter3.id}")do

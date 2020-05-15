@@ -36,11 +36,8 @@ class Shelter < ApplicationRecord
   end
 
   def app_count
-    count = 0
-    pets.each do |pet|
-      count += pet.apps.uniq.count
-    end
-    count
+    pet_ids = pets.pluck(:id)
+    PetApp.where(pet_id: pet_ids).select(:app_id).distinct.count
   end
 
 end
