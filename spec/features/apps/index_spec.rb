@@ -14,7 +14,7 @@ RSpec.describe "Application index page", type: :feature do
    @pet222 = @shelter2.pets.create(name: "P222",age: "1",sex: "male",description: "d1",image: "i1",adoptable: true)
    @pet3 = @shelter3.pets.create(name: "P3",age: "1",sex: "male",description: "d1",image: "i1",adoptable: true)
 
-   @app1 = App.create(name:"A1", address: "a1", city: "C1", state: "ST", zip: "12345", phone_number: "12345678", description:"desc",approved:"false")
+   @app1 = App.create(name:"A1X", address: "a1", city: "C1", state: "ST", zip: "12345", phone_number: "12345678", description:"desc",approved:"false")
    @app11 = App.create(name:"A11", address: "a1", city: "C1", state: "ST", zip: "12345", phone_number: "12345678", description:"desc",approved:"false")
    @app2 = App.create(name:"A2", address: "a1", city: "C1", state: "ST", zip: "12345", phone_number: "12345678", description:"desc",approved:"false")
 
@@ -28,8 +28,23 @@ RSpec.describe "Application index page", type: :feature do
 
   it "view all applications for individual pet" do
 
-    visit "/pets/#{@pet1}"
-    
+    visit "/pets/#{@pet1.id}"
+    click_link("View Applications")
+    expect(current_path).to eq("/pets/#{@pet1.id}/apps")
+
+    within("#app-#{@app1.id}") do
+      expect(page).to have_content(@app1.name)
+      expect(page).to have_css(".pet-link")
+      expect(page).to_not have_content(@app11.name)
+    end
+
+    within("#app-#{@app11.id}") do
+      expect(page).to have_content(@app11.name)
+      expect(page).to_not have_content(@app1.name)
+      click_link("#{@app11.name}")
+    end
+
+    expect(current_path).to eq("/apps/#{@app11.id}")
   end
 end
 
