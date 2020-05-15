@@ -14,4 +14,12 @@ FactoryBot.define do
     state { "DG" }
     zip { 12345 }
   end
+
+  factory :shelter2 do
+    name { "pug place" }
+    address  { "123 pup st" }
+    city { "pugtown" }
+    state { "PG" }
+    zip { 33333 }
+  end
 end

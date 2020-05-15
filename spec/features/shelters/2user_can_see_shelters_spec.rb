@@ -76,8 +76,24 @@ RSpec.describe "Shleters index page", type: :feature do
     expect(page.all('h2')[-1]).to have_content(@shelter1.name)
     expect(page.all('h2')[0]).to have_content(@shelter2.name)
 
+  end
 
-
+  it "lists shelter statistics" do
+    shelter1 = create(:shelter)
+    shelter2 = create(:shelter1)
+    shelter3 = create(:shelter2)
+    pet1 = create(:pet, shelter: shelter1)
+    pet11 = create(:pet, shelter: shelter1)
+    pet111 = create(:pet, shelter: shelter1)
+    pet2 = create(:pet, shelter: shelter2)
+    review1 = create(:review, :shelter) # 3 stars
+    review11 = create(:review, :shelter) # 3 stars
+    review111 = shelter1.reviews.create(title: "title1", rating: 4, content: "na", image: "img" )
+    review2 = create(:review, :shelter) # 3 stars
+    review111 = shelter2.reviews.create(title: "title1", rating: 4, content: "na", image: "img" )
+    app1 = create(:app1)
+    app2 = create(:app2)
+binding.pry
   end
 
 
