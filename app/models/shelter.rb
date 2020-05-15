@@ -36,7 +36,11 @@ class Shelter < ApplicationRecord
   end
 
   def app_count
-    binding.pry
+    count = 0
+    pets.each do |pet|
+      count += pet.apps.uniq.count
+    end
+    count
   end
 
 end
