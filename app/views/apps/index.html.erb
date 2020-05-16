@@ -1,0 +1,16 @@
+<div class="content">
+
+  <h1 class="header">Applications for <%= @pet.name %> </h1>
+
+  <h2> Applicant Name: </h2>
+  <br>
+  <% @pet.apps.each do |app| %>
+  <section id = "app-<%= app.id %>"  >
+    <p><a class= "pet-link" href="/apps/<%= app.id %>"><%= app.name %></a></p>
+  </section>
+  <br>
+  <% end %>
+
+
+
+</div>

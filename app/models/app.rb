@@ -10,4 +10,8 @@ class App < ApplicationRecord
   validates_presence_of :zip
   validates_presence_of :description
 
+  def pets_list
+    pets.pluck(:name).join(", ")
+  end
+
 end
