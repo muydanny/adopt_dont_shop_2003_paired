@@ -47,12 +47,16 @@ RSpec.describe "pet show ", type: :feature do
 
     visit "/pets/#{@pet1.id}"
 
+    expect(@pet1.adoptable).to eq(true)
     expect(page).to have_content("Adoptable")
     click_button("Change to Adoption Pending")
+    expect(current_path).to eq("/pets/#{@pet1.id}")
 
     expect(page).to have_content("Pending")
+    expect(page).to_not have_content("Adoptable")
     click_button("Change to Adoptable")
 
+    expect(@pet1.adoptable).to eq(true)
     expect(page).to have_content("Adoptable")
 
 

@@ -42,7 +42,7 @@ RSpec.describe "Shleters edit page", type: :feature do
     fill_in "zip", with: "99999"
     click_on "Update Shelter"
 
-    expect(page).to have_content("You must fill out all fields")
+    expect(page).to have_content("You must fill out City, State")
     expect(current_path).to eq("/shelters/#{@shelter1.id}/edit")
 
 

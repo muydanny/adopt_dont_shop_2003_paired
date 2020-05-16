@@ -25,8 +25,8 @@ Rails.application.routes.draw do
     get '/pets/:id/edit', to: 'pets#edit'
     patch '/pets/:id', to: 'pets#update'
     delete '/pets/:id', to: 'pets#destroy'
-    patch '/pets/:id/pending', to: 'pets#is_pending'
-    patch '/pets/:id/adoptable', to: 'pets#is_adoptable'
+    patch '/pets/:id/pending', to: 'pets#pending'
+    patch '/pets/:id/adoptable', to: 'pets#adoptable'
 
     get '/shelters/:id/pets', to: 'pets#index'
 # Routes for Paired

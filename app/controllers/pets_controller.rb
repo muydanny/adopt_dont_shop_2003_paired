@@ -12,10 +12,17 @@ class PetsController < ApplicationController
 
   def create
     shelter = Shelter.find(params[:id])
-    pet = shelter.pets.create!(pet_params)
+    pet = shelter.pets.create(pet_params)
 
-    redirect_to "/shelters/#{shelter.id}/pets"
+    if pet.save
+      flash[:message] = "#{pet.name} has been created!"
+      redirect_to "/shelters/#{shelter.id}/pets"
+    else
+      flash[:message] = "You must fill out #{empty_params}"
+      redirect_to "/shelters/#{shelter.id}/pets/new"
+    end
   end
+
 
   def show
     @pet = Pet.find(params[:id])
@@ -28,17 +35,23 @@ class PetsController < ApplicationController
 
   def update
     pet = Pet.find(params[:id])
-    pet.update!(pet_params)
+    pet.update(pet_params)
 
     redirect_to '/pets'
   end
 
   def destroy
+    pet_id = params[:id]
+
+    if !session[:favorite].nil?
+      session[:favorite].delete(pet_id.to_s)
+    end
+
     Pet.destroy(params[:id])
     redirect_to '/pets'
   end
 
-  def is_adoptable
+  def adoptable
     @pet = Pet.find(params[:id])
     @pet.update({
       adoptable: true
@@ -46,7 +59,7 @@ class PetsController < ApplicationController
     redirect_to "/pets/#{@pet.id}"
   end
 
-  def is_pending
+  def pending
     @pet = Pet.find(params[:id])
     @pet.update({
       adoptable: false
@@ -63,6 +76,14 @@ class PetsController < ApplicationController
                   :age,
                   :sex,
                   :adoptable)
+  end
+
+  def empty_params
+    empty_params = []
+    empty_params << "Name" if params[:name] == ""
+    empty_params << "Age" if params[:age] == ""
+    empty_params << "Image" if params[:image] == ""
+    empty_params.join(", ")
   end
 
 
