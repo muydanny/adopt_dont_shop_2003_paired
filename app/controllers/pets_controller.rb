@@ -38,7 +38,7 @@ class PetsController < ApplicationController
     redirect_to '/pets'
   end
 
-  def is_adoptable
+  def adoptable
     @pet = Pet.find(params[:id])
     @pet.update({
       adoptable: true
@@ -46,7 +46,7 @@ class PetsController < ApplicationController
     redirect_to "/pets/#{@pet.id}"
   end
 
-  def is_pending
+  def pending
     @pet = Pet.find(params[:id])
     @pet.update({
       adoptable: false

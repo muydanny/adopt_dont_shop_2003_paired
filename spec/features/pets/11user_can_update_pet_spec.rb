@@ -76,4 +76,7 @@ RSpec.describe "pet update ", type: :feature do
     expect(current_path).to eq("/pets/#{@pet1.id}/edit")
   end
 
+
+
+
 end
