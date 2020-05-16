@@ -44,7 +44,13 @@ RSpec.describe "Shleters create page", type: :feature do
 
 
     expect(current_path).to eq("/shelters/new")
-    expect(page).to have_content("You must fill out all fields")
+    expect(page).to have_content("You must fill out City, State, Zip")
+
+    click_on "Create Shelter"
+
+
+    expect(current_path).to eq("/shelters/new")
+    expect(page).to have_content("You must fill out Name, Address, City, State, Zip")
 
 
   end
