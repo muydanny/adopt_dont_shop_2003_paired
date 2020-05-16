@@ -17,6 +17,8 @@
 
   <% @pets.each do |pet| %>
   <div class="pet-list">
+    <section id="pet-<%= pet.id %>">
+
 
       <img class="pet-image-small" src="<%= pet.image %>" alt="<%= pet.name %> image"> <p>
       <h2><a class="pet-link hover" href="/pets/<%= pet.id %>"><%= pet.name %></a></h2>
@@ -37,11 +39,16 @@
       <a class="edit" href="/pets/<%= pet.id %>/edit">Update Pet</a><br><br>
 
       <section class="delete-form">
-        <%= button_to "Delete #{pet.name}", "/pets/#{pet.id}", method: :delete %>
+        <% if !pet.adoptable %>
+          <p>Cannot delete pet with approved applications</p>
+        <% else %>
+          <%= button_to "Delete #{pet.name}", "/pets/#{pet.id}", method: :delete %>
+        <% end %>
       </section>
 
 
 
+    </section>
   </div>
   <br>
 
