@@ -125,6 +125,32 @@ RSpec.describe "When I visit an applications show page '/apps/:id'", type: :feat
        expect(page).to have_content("Can not approve application")
        expect(page).to_not have_button("Approve Application")
      end
-
    end
+
+   it "can revoke an application" do
+
+     visit "/apps/#{@app1.id}"
+     expect(@pet1.adoptable).to eq(true)
+     expect(@app1.approved).to eq("false")
+
+     expect(current_path).to eq("/apps/#{@app1.id}")
+
+     within("#pet-#{@pet1.id}") do
+       expect(page).to_not have_button("Revoke Application")
+       click_button("Approve Application")
+     end
+
+      expect(page).to have_content("Adoption status: Pending")
+      expect(page).to have_content("On hold for #{@app1.name}")
+
+      visit "/apps/#{@app1.id}"
+
+      within("#pet-#{@pet1.id}") do
+        expect(page).to_not have_button("Approve Application")
+        click_button("Revoke Application")
+      end
+      expect(page).to have_content("Adoption status: Adoptable")
+      expect(page).to_not have_content("On hold for #{@app1.name}")
+    end
+
  end
