@@ -79,13 +79,52 @@ RSpec.describe "When I visit an applications show page '/apps/:id'", type: :feat
     expect(page).to have_content("On hold for #{@app1.name}")
     # expect(@app1.approved).to eq("true")
   end
+
+  it "approve any number of pets on application" do
+    visit "/pets/#{@pet1.id}"
+    expect(page).to have_content("Adoption status: Adoptable")
+    visit "/pets/#{@pet11.id}"
+    expect(page).to have_content("Adoption status: Adoptable")
+    visit "/apps/#{@app1.id}"
+
+    expect(current_path).to eq("/apps/#{@app1.id}")
+
+    within("#pet-#{@pet1.id}") do
+
+      click_button "Approve Application"
+    end
+    expect(current_path).to eq("/pets/#{@pet1.id}")
+    expect(page).to have_content("Adoption status: Pending")
+    expect(page).to have_content("On hold for #{@app1.name}")
+    visit "/apps/#{@app1.id}"
+    within("#pet-#{@pet11.id}") do
+
+      click_button "Approve Application"
+
+    end
+     expect(current_path).to eq("/pets/#{@pet11.id}")
+     @pet11.reload
+     @app1.reload
+     expect(page).to have_content("Adoption status: Pending")
+     expect(page).to have_content("On hold for #{@app1.name}")
+   end
+
+   it "can not approve any other apps for pet" do
+     visit "/apps/#{@app1.id}"
+     expect(current_path).to eq("/apps/#{@app1.id}")
+
+     within("#pet-#{@pet1.id}") do
+       expect(page).to_not have_content("Can not approve application")
+       click_button "Approve Application"
+     end
+
+     visit "/apps/#{@app111.id}"
+     expect(current_path).to eq("/apps/#{@app111.id}")
+
+     within("#pet-#{@pet1.id}") do
+       expect(page).to have_content("Can not approve application")
+       expect(page).to_not have_button("Approve Application")
+     end
+
+   end
  end
-
-
-# When I visit an application's show page
-# For every pet that the application is for, I see a link
-# to approve the application for that specific pet
-# When I click on a link to approve the application for one
-# particular pet I'm taken back to that pet's show page
-# And I see that the pets status has changed to 'pending'
-# And I see text on the page that says who this pet is on hold for

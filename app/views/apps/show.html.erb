@@ -13,7 +13,11 @@
     <% @app.pets.each do |pet| %>
     <section id = "pet-<%= pet.id %>">
       <p><a class= "pet-link" href="/pets/<%= pet.id %>"><%= pet.name %></a></p>
-      <%= button_to "Approve Application", "/apps/#{@app.id}/pets/#{pet.id}", method: :patch, class: "grey hover" %>
+      <% if pet.on_hold_for.nil? %>
+        <%= button_to "Approve Application", "/apps/#{@app.id}/pets/#{pet.id}", method: :patch, class: "grey hover" %>
+      <% else %>
+        <p>Can not approve application</p>
+      <% end %>
     </section>
     <% end %>
   </section>
