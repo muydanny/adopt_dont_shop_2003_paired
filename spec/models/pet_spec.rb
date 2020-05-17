@@ -116,6 +116,7 @@ RSpec.describe Pet, type: :model do
     PetApp.create(pet: @pet1, app: @app1)
     PetApp.create(pet: @pet1, app: @app111)
     PetApp.create(pet: @pet11, app: @app1)
-    expect(@pet1.on_hold_for).to eq("A1")
+    expect(@pet1.on_hold_for).to eq(nil)
+    expect(@pet11.on_hold_for).to eq("A1")
   end
 end

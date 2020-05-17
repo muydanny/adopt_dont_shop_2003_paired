@@ -14,8 +14,11 @@
 
   <% elsif !@pet.adoptable %>
   <%= button_to "Change to Adoptable", "/pets/#{@pet.id}/adoptable", method: :patch, class: "grey hover"%>
-  <p>On hold for <%= %></p>
-    <% end %><br><br>
+    <% end %><br>
+
+    <% if !@pet.on_hold_for.nil? %>
+    <p>On hold for <%= @pet.on_hold_for %></p>
+    <% end %>
 
     <%= link_to "View Applications", "/pets/#{@pet.id}/apps", class: "grey hover" %>
   <br>

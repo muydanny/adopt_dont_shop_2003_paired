@@ -31,6 +31,8 @@ class Pet < ApplicationRecord
   end
 
   def on_hold_for
-    apps.where(approved: :true).pluck(:name).join
+    if !adoptable
+      apps.where(approved: :true).pluck(:name).join
+    end
   end
 end
