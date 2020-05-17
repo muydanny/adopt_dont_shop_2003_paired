@@ -29,6 +29,18 @@ class AppsController < ApplicationController
     end
   end
 
+  def update
+    app = App.find(params[:app_id])
+    pet = Pet.find(params[:id])
+    app.update({
+      approved: "true"
+      })
+    pet.update({
+      adoptable: false
+      })
+    redirect_to "/pets/#{pet.id}"
+  end
+
   private
 
   def app_params

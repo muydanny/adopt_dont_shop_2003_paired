@@ -59,4 +59,5 @@ RSpec.describe "Application index page", type: :feature do
     expect(page).to have_content("Applications for #{@pet222.name}")
     expect(page).to have_content("There are no applications for this pet.")
   end
+    
 end

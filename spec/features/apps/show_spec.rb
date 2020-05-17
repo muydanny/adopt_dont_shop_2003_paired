@@ -53,17 +53,39 @@ RSpec.describe "When I visit an applications show page '/apps/:id'", type: :feat
 
  end
 
-end
+ it "link to approve app for pet, taken to pet show page, and status change" do
 
-# When I visit an applications show page "/applications/:id"
-# I can see the following:
-# - name
-# - address
-# - city
-# - state
-# - zip
-# - phone number
-# - Description of why the applicant says they'd
-# be a good home for this pet(s)
-# - names of all pet's that this application is
-# for (all names of pets should be links to their show page)
+   visit "/apps/#{@app1.id}"
+   expect(@pet1.adoptable).to eq(true)
+   expect(@pet11.adoptable).to eq(true)
+   expect(@app1.approved).to eq("false")
+
+   expect(current_path).to eq("/apps/#{@app1.id}")
+
+   within("#pet-#{@pet1.id}") do
+
+     expect(page).to have_button("Approve Application")
+   end
+
+   within("#pet-#{@pet11.id}") do
+
+     click_button "Approve Application"
+
+   end
+    expect(current_path).to eq("/pets/#{@pet11.id}")
+    @pet11.reload
+    @app1.reload
+    expect(page).to have_content("Adoption status: Pending")
+    expect(page).to have_content("On hold for #{@app1.name}")
+    # expect(@app1.approved).to eq("true")
+  end
+ end
+
+
+# When I visit an application's show page
+# For every pet that the application is for, I see a link
+# to approve the application for that specific pet
+# When I click on a link to approve the application for one
+# particular pet I'm taken back to that pet's show page
+# And I see that the pets status has changed to 'pending'
+# And I see text on the page that says who this pet is on hold for

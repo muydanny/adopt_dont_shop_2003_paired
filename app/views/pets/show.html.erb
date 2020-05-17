@@ -10,11 +10,11 @@
 
   <p>Adoption status: <%= @pet.adoption_status %></p>
   <% if @pet.adoptable %>
-    <%= button_to "Change to Adoption Pending", "/pets/#{@pet.id}/pending", method: :patch, class: "grey hoever" %>
+    <%= button_to "Change to Adoption Pending", "/pets/#{@pet.id}/pending", method: :patch, class: "grey hover" %>
 
   <% elsif !@pet.adoptable %>
-  <%= button_to "Change to Adoptable", "/pets/#{@pet.id}/adoptable", method: :patch, class: "grey hoever"%>
-
+  <%= button_to "Change to Adoptable", "/pets/#{@pet.id}/adoptable", method: :patch, class: "grey hover"%>
+  <p>On hold for <%= %></p>
     <% end %><br><br>
 
     <%= link_to "View Applications", "/pets/#{@pet.id}/apps", class: "grey hover" %>

@@ -11,7 +11,10 @@
     <p> Phone Number: <%= @app.phone_number %></p>
     <p> Description: <%= @app.description %></p>
     <% @app.pets.each do |pet| %>
-    <p><a class= "pet-link" href="/pets/<%= pet.id %>"><%= pet.name %></a></p>
+    <section id = "pet-<%= pet.id %>">
+      <p><a class= "pet-link" href="/pets/<%= pet.id %>"><%= pet.name %></a></p>
+      <%= button_to "Approve Application", "/apps/#{@app.id}/pets/#{pet.id}", method: :patch, class: "grey hover" %>
+    </section>
     <% end %>
   </section>
 
