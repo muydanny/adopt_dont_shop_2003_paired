@@ -16,9 +16,8 @@
   <%= button_to "Change to Adoptable", "/pets/#{@pet.id}/adoptable", method: :patch, class: "grey hoever"%>
 
     <% end %><br><br>
-  <% if !@pet.apps.empty? %>
+
     <%= link_to "View Applications", "/pets/#{@pet.id}/apps", class: "grey hover" %>
-  <% end %>
   <br>
   <br>
   <% if favorite.contents[@pet.id.to_s].nil? || favorite.contents[@pet.id.to_s] == 0 %>

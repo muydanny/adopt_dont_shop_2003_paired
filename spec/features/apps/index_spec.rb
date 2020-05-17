@@ -17,6 +17,7 @@ RSpec.describe "Application index page", type: :feature do
    @app1 = App.create(name:"A1X", address: "a1", city: "C1", state: "ST", zip: "12345", phone_number: "12345678", description:"desc",approved:"false")
    @app11 = App.create(name:"A11", address: "a1", city: "C1", state: "ST", zip: "12345", phone_number: "12345678", description:"desc",approved:"false")
    @app2 = App.create(name:"A2", address: "a1", city: "C1", state: "ST", zip: "12345", phone_number: "12345678", description:"desc",approved:"false")
+   @app22 = App.create(name:"A2X", address: "a1", city: "C1", state: "ST", zip: "12345", phone_number: "12345678", description:"desc",approved:"false")
 
    PetApp.create(pet: @pet1, app: @app1)
    PetApp.create(pet: @pet1, app: @app11)
@@ -44,12 +45,18 @@ RSpec.describe "Application index page", type: :feature do
       click_link("#{@app11.name}")
     end
 
+    expect(page).not_to have_content("There are no applications for this pet.")
     expect(current_path).to eq("/apps/#{@app11.id}")
   end
-end
 
-# When I visit a pets show page
-# I see a link to view all applications for this pet
-# When I click that link
-# I can see a list of all the names of applicants for this pet
-# Each applicant's name is a link to their application show page
+  it "shows prompt for pet with no applications" do
+
+    visit "/pets/#{@pet222.id}"
+    click_link "View Applications"
+
+    expect(current_path).to eq("/pets/#{@pet222.id}/apps")
+
+    expect(page).to have_content("Applications for #{@pet222.name}")
+    expect(page).to have_content("There are no applications for this pet.")
+  end
+end

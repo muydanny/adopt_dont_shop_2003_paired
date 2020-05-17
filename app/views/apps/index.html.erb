@@ -3,13 +3,16 @@
   <h1 class="header">Applications for <%= @pet.name %> </h1>
 
   <h2> Applicant Name: </h2>
-  <br>
-  <% @pet.apps.each do |app| %>
-  <section id = "app-<%= app.id %>"  >
-    <p><a class= "pet-link" href="/apps/<%= app.id %>"><%= app.name %></a></p>
-  </section>
-  <br>
+  <% if @pet.apps.empty? %>
+    <p class="bold">There are no applications for this pet. </p>
+  <% else %>
+    <% @pet.apps.each do |app| %>
+    <section id = "app-<%= app.id %>"  >
+      <p><a class= "pet-link" href="/apps/<%= app.id %>"><%= app.name %></a></p>
+    </section>
+    <br>
   <% end %>
+<% end %>
 
 
 
