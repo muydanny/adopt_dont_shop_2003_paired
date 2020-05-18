@@ -107,4 +107,16 @@ RSpec.describe Pet, type: :model do
     expect(Pet.pet_list(params)).to eq([@pet1, @pet3])
   end
 
+  it "has on hold text" do
+    @shelter1 = Shelter.create(name: "S1", address: "A1",city: "C1",state: "ST",zip: "12345")
+    @pet1 = @shelter1.pets.create(name: "P1",age: "1",sex: "male",description: "d1",image: "i1",adoptable: true)
+    @pet11 = @shelter1.pets.create(name: "P11",age: "1",sex: "male",description: "d1",image: "i1",adoptable: false)
+    @app1 = App.create(name:"A1", address: "a1", city: "C1", state: "ST", zip: "12345", phone_number: "12345678", description:"desc",approved:"true")
+    @app111 = App.create(name:"A111", address: "a1", city: "C1", state: "ST", zip: "12345", phone_number: "12345678", description:"desc",approved:"false")
+    PetApp.create(pet: @pet1, app: @app1)
+    PetApp.create(pet: @pet1, app: @app111)
+    PetApp.create(pet: @pet11, app: @app1)
+    expect(@pet1.on_hold_for).to eq(nil)
+    expect(@pet11.on_hold_for).to eq("A1")
+  end
 end

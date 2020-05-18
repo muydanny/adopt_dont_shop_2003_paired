@@ -112,7 +112,7 @@ and I can see my new review
 ```
 
 ```
-[ ] done
+[ X ] done
 
 User Story 4, Shelter Review Creation, cont.
 
@@ -123,7 +123,7 @@ And I'm returned to the new form to create a new review
 ```
 
 ```
-[ ] done
+[ X ] done
 
 User Story 5, Edit a Shelter Review
 
@@ -142,7 +142,7 @@ And I can see my updated review
 ```
 
 ```
-[ ] done
+[ X ] done
 
 User Story 6, Edit a Shelter Review, cont.
 
@@ -153,7 +153,7 @@ And I'm returned to the edit form to edit that review
 ```
 
 ```
-[ ] done
+[ X ] done
 
 User Story 7, Delete a Shelter Review
 
@@ -169,7 +169,7 @@ And I should no longer see that shelter review
 Users will be able to favorite a pet and keep track of pet's they're interested in
 
 ```
-[ ] done
+[ X ] done
 
 User Story 8, Favorite Indicator
 
@@ -180,7 +180,7 @@ I can see this favorite indicator from any page in the application
 ```
 
 ```
-[ ] done
+[ X ] done
 
 User Story 9, Favorite Creation
 
@@ -195,7 +195,7 @@ The favorite indicator in the nav bar has incremented by one
 
 
 ```
-[ ] done
+[ X ] done
 
 User Story 10, Favorite Index Page
 
@@ -209,7 +209,7 @@ Each pet in my favorites shows the following information:
 ```
 
 ```
-[ ] done
+[ X ] done
 
 User Story 11, Favorite Indicator links to Index Page
 
@@ -219,7 +219,7 @@ I am taken to the favorites index page
 ```
 
 ```
-[ ] done
+[ X ] done
 
 User Story 12, Can't Favorite a Pet More Than Once
 
@@ -236,7 +236,7 @@ And I also see that my favorites indicator has decremented by 1
 ```
 
 ```
-[ ] done
+[ X ] done
 
 User Story 13, Remove a Favorite from Favorites Page
 
@@ -251,7 +251,7 @@ And I also see that the favorites indicator has decremented by 1
 ```
 
 ```
-[ ] done
+[ X ] done
 
 User Story 14, No Favorites Page
 
@@ -262,7 +262,7 @@ I see text saying that I have no favorited pets
 ```
 
 ```
-[ ] done
+[ X ] done
 
 User Story 15, Remove all Favorite from Favorites Page
 
@@ -281,7 +281,7 @@ And the favorites indicator returns to 0
 Users will be able to submit an application for one ore more pets they they've favorited.
 
 ```
-[ ] done
+[ X ] done
 
 User Story 16, Applying for a Pet
 
@@ -305,7 +305,7 @@ And I'm taken back to my favorites page where I no longer see the pets for which
 ```
 
 ```
-[ ] done
+[ X ] done
 
 User Story 17, Incomplete application for a Pet
 
@@ -324,7 +324,7 @@ And I see a flash message indicating that I must complete the form in order to s
 ```
 
 ```
-[ ] done
+[ X ] done
 
 User Story 18, List of Pets that have applications on them
 
@@ -336,7 +336,7 @@ Each pet's name is a link to their show page
 ```
 
 ```
-[ ] done
+[ X ] done
 
 User Story 19, Application Show Page
 
@@ -355,7 +355,7 @@ I can see the following:
 
 
 ```
-[ ] done
+[ X ] done
 
 User Story 20, Pet Applications Index Page
 
@@ -368,7 +368,7 @@ Each applicant's name is a link to their application show page
 ```
 
 ```
-[ ] done
+[  ] done
 
 User Story 21, Pet Applications Index Page When No Applications
 
@@ -378,7 +378,7 @@ I see a message saying that there are no applications for this pet yet
 ```
 
 ```
-[ ] done
+[  ] done
 
 User Story 22, Approving an Application
 
@@ -392,7 +392,7 @@ And I see text on the page that says who this pet is on hold for (Ex: "On hold f
 ```
 
 ```
-[ ] done
+[  ] done
 
 User Story 23, Users can get approved to adopt more than one pet
 
@@ -405,7 +405,7 @@ I'm able to approve the application for any number of pets
 ```
 User Story 24, Pets can only have one approved application on them at any time
 
-[ ] done
+[  ] done
 
 As a visitor
 When a pet has more than one application made for them
@@ -417,7 +417,7 @@ I can not approve any other applications for that pet but all other applications
 ```
 User Story 25, Approved Applications can be revoked
 
-[ ] done
+[  ] done
 
 As a visitor
 After an application has been approved for a pet
@@ -439,7 +439,7 @@ Visitors will have additional constraints when manipulating shelter data in the 
 
 
 ```
-[ ] done
+[ X ] done
 
 User Story 26, Shelters with Pets that have pending status cannot be Deleted
 
@@ -452,7 +452,7 @@ Either:
 ```
 
 ```
-[ ] done
+[ X ] done
 
 User Story 27, Shelters can be Deleted as long as all pets do not have approved applications on them
 
@@ -464,7 +464,7 @@ Then all of their pets are deleted as well
 ```
 
 ```
-[ ] done
+[ X ] done
 
 User Story 28, Deleting Shelters Deletes its Reviews
 
@@ -474,7 +474,7 @@ All reviews associated with that shelter are also deleted
 ```
 
 ```
-[ ] done
+[ X ] done
 
 User Story 29, Flash Messages for Shelter Create and Update
 
@@ -485,7 +485,7 @@ I see a flash message indicating which field(s) I am missing
 ```
 
 ```
-[ ] done
+[ X ] done
 
 User Story 30, Shelter Statistics
 
@@ -505,7 +505,7 @@ Visitors will have additional constraints when manipulating pet data in the data
 
 
 ```
-[ ] done
+[ X ] done
 
 User Story 31, Pets with approved applications cannot be deleted
 
@@ -518,7 +518,7 @@ Either:
 ```
 
 ```
-[ ] done
+[ X ] done
 
 User Story 32, Deleting a pet removes it from favorites
 
@@ -529,7 +529,7 @@ They are also removed from the favorites list
 ```
 
 ```
-[ ] done
+[ X ] done
 
 User Story 33, Flash Message for Pet Create and Update
 
@@ -544,7 +544,7 @@ I see a flash message indicating which field(s) I am missing
 Visitors will have additional constraints when manipulating pet data in the database.
 
 ```
-[ ] done
+[ X ] done
 
 User Story 34, All Pet Names are links to that Pet's Show Page
 
@@ -554,7 +554,7 @@ It is a link to their show page
 ```
 
 ```
-[ ] done
+[ X ] done
 
 User Story 35, All Shelter Names are links to that Shelter's Show Page
 
@@ -564,7 +564,7 @@ It is a link to their show page
 ```
 
 ```
-[ ] done
+[ X ] done
 
 User Story 36, All Applicant Names are links to that Applicant's application
 
