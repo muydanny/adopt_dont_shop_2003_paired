@@ -68,8 +68,7 @@ class AppsController < ApplicationController
                   :state,
                   :zip,
                   :phone_number,
-                  :description,
-                  :approved
+                  :description
                   )
   end
 

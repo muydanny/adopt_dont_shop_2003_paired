@@ -84,8 +84,8 @@ RSpec.describe "pet update ", type: :feature do
     pet110 = shelter1.pets.create(name: "P110",age: "1",sex: "male",description: "d1",image: "i1",adoptable: true)
     pet111 = shelter1.pets.create(name: "P111",age: "1",sex: "male",description: "d1",image: "i1",adoptable: true)
 
-    app100 = App.create(name:"A100", address: "a1", city: "C1", state: "ST", zip: "12345", phone_number: "12345678", description:"desc",approved:"false")
-    app111 = App.create(name:"A111", address: "a1", city: "C1", state: "ST", zip: "12345", phone_number: "12345678", description:"desc",approved:"false")
+    app100 = App.create(name:"A100", address: "a1", city: "C1", state: "ST", zip: "12345", phone_number: "12345678", description:"desc")
+    app111 = App.create(name:"A111", address: "a1", city: "C1", state: "ST", zip: "12345", phone_number: "12345678", description:"desc")
 
     PetApp.create(pet: pet100, app: app100)
     PetApp.create(pet: pet100, app: app111)
@@ -141,8 +141,8 @@ RSpec.describe "pet update ", type: :feature do
     pet110 = shelter1.pets.create(name: "P110",age: "1",sex: "male",description: "d1",image: "i1",adoptable: true)
     pet111 = shelter1.pets.create(name: "P111",age: "1",sex: "male",description: "d1",image: "i1",adoptable: true)
 
-    app100 = App.create(name:"A100", address: "a1", city: "C1", state: "ST", zip: "12345", phone_number: "12345678", description:"desc",approved:"false")
-    app111 = App.create(name:"A111", address: "a1", city: "C1", state: "ST", zip: "12345", phone_number: "12345678", description:"desc",approved:"false")
+    app100 = App.create(name:"A100", address: "a1", city: "C1", state: "ST", zip: "12345", phone_number: "12345678", description:"desc")
+    app111 = App.create(name:"A111", address: "a1", city: "C1", state: "ST", zip: "12345", phone_number: "12345678", description:"desc")
 
     PetApp.create(pet: pet100, app: app100)
     PetApp.create(pet: pet100, app: app111)

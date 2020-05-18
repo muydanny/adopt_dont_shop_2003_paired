@@ -172,3 +172,10 @@
 .user-message {
   margin-top:40px;
 }
+.section-right {
+  float: left;
+  margin-left: 5vw;
+}
+.section-left {
+  float: left;
+}

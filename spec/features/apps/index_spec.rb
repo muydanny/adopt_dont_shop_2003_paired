@@ -14,10 +14,10 @@ RSpec.describe "Application index page", type: :feature do
    @pet222 = @shelter2.pets.create(name: "P222",age: "1",sex: "male",description: "d1",image: "i1",adoptable: true)
    @pet3 = @shelter3.pets.create(name: "P3",age: "1",sex: "male",description: "d1",image: "i1",adoptable: true)
 
-   @app1 = App.create(name:"A1X", address: "a1", city: "C1", state: "ST", zip: "12345", phone_number: "12345678", description:"desc",approved:"false")
-   @app11 = App.create(name:"A11", address: "a1", city: "C1", state: "ST", zip: "12345", phone_number: "12345678", description:"desc",approved:"false")
-   @app2 = App.create(name:"A2", address: "a1", city: "C1", state: "ST", zip: "12345", phone_number: "12345678", description:"desc",approved:"false")
-   @app22 = App.create(name:"A2X", address: "a1", city: "C1", state: "ST", zip: "12345", phone_number: "12345678", description:"desc",approved:"false")
+   @app1 = App.create(name:"A1X", address: "a1", city: "C1", state: "ST", zip: "12345", phone_number: "12345678", description:"desc")
+   @app11 = App.create(name:"A11", address: "a1", city: "C1", state: "ST", zip: "12345", phone_number: "12345678", description:"desc")
+   @app2 = App.create(name:"A2", address: "a1", city: "C1", state: "ST", zip: "12345", phone_number: "12345678", description:"desc")
+   @app22 = App.create(name:"A2X", address: "a1", city: "C1", state: "ST", zip: "12345", phone_number: "12345678", description:"desc")
 
    PetApp.create(pet: @pet1, app: @app1)
    PetApp.create(pet: @pet1, app: @app11)
@@ -59,5 +59,5 @@ RSpec.describe "Application index page", type: :feature do
     expect(page).to have_content("Applications for #{@pet222.name}")
     expect(page).to have_content("There are no applications for this pet.")
   end
-    
+
 end

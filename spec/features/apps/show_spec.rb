@@ -14,9 +14,9 @@ RSpec.describe "When I visit an applications show page '/apps/:id'", type: :feat
    @pet222 = @shelter2.pets.create(name: "P222",age: "1",sex: "male",description: "d1",image: "i1",adoptable: true)
    @pet3 = @shelter3.pets.create(name: "P3",age: "1",sex: "male",description: "d1",image: "i1",adoptable: true)
 
-   @app1 = App.create(name:"A1", address: "a1", city: "C1", state: "ST", zip: "12345", phone_number: "12345678", description:"desc",approved:"false")
-   @app111 = App.create(name:"A111", address: "a1", city: "C1", state: "ST", zip: "12345", phone_number: "12345678", description:"desc",approved:"false")
-   @app2 = App.create(name:"A2", address: "a1", city: "C1", state: "ST", zip: "12345", phone_number: "12345678", description:"desc",approved:"false")
+   @app1 = App.create(name:"A1", address: "a1", city: "C1", state: "ST", zip: "12345", phone_number: "12345678", description:"desc")
+   @app111 = App.create(name:"A111", address: "a1", city: "C1", state: "ST", zip: "12345", phone_number: "12345678", description:"desc")
+   @app2 = App.create(name:"A2", address: "a1", city: "C1", state: "ST", zip: "12345", phone_number: "12345678", description:"desc")
 
    PetApp.create(pet: @pet1, app: @app1, approved: false)
    PetApp.create(pet: @pet1, app: @app111, approved: false)
@@ -58,7 +58,6 @@ RSpec.describe "When I visit an applications show page '/apps/:id'", type: :feat
    visit "/apps/#{@app1.id}"
    expect(@pet1.adoptable).to eq(true)
    expect(@pet11.adoptable).to eq(true)
-   expect(@app1.approved).to eq("false")
 
    expect(current_path).to eq("/apps/#{@app1.id}")
 
@@ -131,7 +130,6 @@ RSpec.describe "When I visit an applications show page '/apps/:id'", type: :feat
 
      visit "/apps/#{@app1.id}"
      expect(@pet1.adoptable).to eq(true)
-     expect(@app1.approved).to eq("false")
 
      expect(current_path).to eq("/apps/#{@app1.id}")
 
