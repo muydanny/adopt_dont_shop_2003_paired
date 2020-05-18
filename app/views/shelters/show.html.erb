@@ -1,17 +1,17 @@
 
   <div class="content">
-
-  <h1 class="header">Shelter Details</h1>
-  <h2 class="bold">Name: <%= @shelter.name %></h2>
-  <p class="bold"> Pet Count: <%= @shelter.pets.count %></p>
-  <p class="bold">Address: <%= @shelter.address %></p>
-  <p class="bold">City: <%= @shelter.city %></p>
-  <p class="bold">State: <%= @shelter.state %></p>
-  <p class="bold">Zip: <%= @shelter.zip %></p> <br>
-  <p><a class="edit" href="/shelters/<%= @shelter.id %>/pets/new">Create Pet</a></p>
+    
+    <h1 class="header">Shelter Details</h1>
+    <h2 class="bold">Name: <%= @shelter.name %></h2>
+    <p class="bold"> Pet Count: <%= @shelter.pets.count %></p>
+    <p class="bold">Address: <%= @shelter.address %></p>
+    <p class="bold">City: <%= @shelter.city %></p>
+    <p class="bold">State: <%= @shelter.state %></p>
+    <p class="bold">Zip: <%= @shelter.zip %></p> <br>
+    <p><a class="edit" href="/shelters/<%= @shelter.id %>/pets/new">Create Pet</a></p>
 
   <a class="edit" href="/shelters/<%= @shelter.id%>/pets">See Adoptable Pets!</a>
-<br><br>
+  <br><br>
   <p><a class="edit" href="/shelters/<%= @shelter.id %>/edit">Update Shelter</a></p>
 
   <%= link_to "Review this shelter!", "/shelters/#{@shelter.id}/new_review", method: "get" %>

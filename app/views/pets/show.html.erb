@@ -1,11 +1,13 @@
 <div class="content">
   <h1 class="header">Pet Details</h1>
-<section class="section-left">
+<section class="content-left">
 
 
 
   <img class="pet-image" src="<%= @pet.image %>" alt="<%= @pet.name %> image"> <p>
-  <h3>Name: <%= @pet.name %></h3>
+  <section class="header-left">
+      <h3>Name: <%= @pet.name %></h3>
+  </section>
   <p>Description: <%= @pet.description %></p>
   <p>Shelter: <a class="shelter-link hover" href="/shelters/<%= @pet.shelter_id %>"><%= @pet.shelter.name %></a></p>
   <p>Approximate Age: <%= @pet.age %><p>
@@ -14,7 +16,10 @@
   <p>Adoption status: <%= @pet.adoption_status %></p>
 
 </section>
-  <section class="section-right">
+  <section class="content-right">
+    <section class="header-right">
+      <h3>Adoption Settings: </h3>
+    </section><br>
     <% if @pet.adoptable %>
       <%= button_to "Change to Adoption Pending", "/pets/#{@pet.id}/pending", method: :patch, class: "grey hover" %>
 
@@ -25,7 +30,9 @@
       <% if @pet.approved %>
       <p>On hold for <%= @pet.on_hold_for %></p>
       <% end %>
-
+      <section class="header-right">
+        <h3>Application Settings: </h3>
+      </section><br>
       <%= link_to "View Applications", "/pets/#{@pet.id}/apps", class: "grey hover" %>
     <br>
     <br>
@@ -38,7 +45,9 @@
       <%= button_to "Remove #{@pet.name} from favorites", "/favorites/#{@pet.id}?page=show", method: :delete, class: "grey hover" %>
     </section><br>
     <% end %>
-
+    <section class="header-right">
+      <h3>Pet Settings:</h3>
+    </section><br>
     <a class="edit" href="/pets/<%= @pet.id %>/edit">Update Pet</a><br><br>
 
     <section class="delete-form">
