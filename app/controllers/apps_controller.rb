@@ -4,6 +4,10 @@ class AppsController < ApplicationController
     @pet = Pet.find(params[:id])
   end
 
+  def all
+    @apps = App.all
+  end
+
   def new
     @favorite_pets = favorite.favorite_pets
   end
@@ -17,7 +21,7 @@ class AppsController < ApplicationController
 
     if @app.save
       params[:pet_ids].each do |id|
-        PetApp.create(pet_id: id, app: @app)
+        PetApp.create(pet_id: id, app_id: @app.id, approved: false)
         session[:favorite].delete(id.to_s)
       end
 
@@ -30,24 +34,29 @@ class AppsController < ApplicationController
   end
 
   def update
-    app = App.find(params[:app_id])
     pet = Pet.find(params[:id])
+    pet_app = PetApp.where(pet_id: pet.id)
     if params[:approved] == "true"
-    app.update({
-      approved: "true"
+    pet_app.update({
+      approved: true
       })
     pet.update({
       adoptable: false
       })
     else params[:approved] == "false"
-      app.update({
-        approved: "false"
+      pet_app.update({
+        approved: false
         })
       pet.update({
         adoptable: true
         })
-      end
+    end
     redirect_to "/pets/#{pet.id}"
+  end
+
+  def destroy
+    App.destroy(params[:id])
+    redirect_to '/apps/all'
   end
 
   private

@@ -1,6 +1,6 @@
 class App < ApplicationRecord
 
-  has_many :pet_apps
+  has_many :pet_apps, dependent: :destroy
   has_many :pets, through: :pet_apps
 
   validates_presence_of :name
@@ -10,8 +10,6 @@ class App < ApplicationRecord
   validates_presence_of :zip
   validates_presence_of :description
 
-  def pets_list
-    pets.pluck(:name).join(", ")
-  end
+
 
 end

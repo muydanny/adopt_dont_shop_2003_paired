@@ -16,7 +16,7 @@
   <%= button_to "Change to Adoptable", "/pets/#{@pet.id}/adoptable", method: :patch, class: "grey hover"%>
     <% end %><br>
 
-    <% if !@pet.on_hold_for.nil? %>
+    <% if @pet.approved %>
     <p>On hold for <%= @pet.on_hold_for %></p>
     <% end %>
 

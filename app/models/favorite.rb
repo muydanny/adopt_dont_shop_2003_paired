@@ -21,6 +21,7 @@ class Favorite
 
   def favorite_pets
     # need to chagne this to AR instead of RUBY
+    # this IS using AR... currently @contents is not an AR object
     @contents.keys.map {|id| Pet.find(id)}
   end
 end

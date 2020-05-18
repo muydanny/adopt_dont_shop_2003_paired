@@ -18,12 +18,12 @@ RSpec.describe "When I visit an applications show page '/apps/:id'", type: :feat
    @app111 = App.create(name:"A111", address: "a1", city: "C1", state: "ST", zip: "12345", phone_number: "12345678", description:"desc",approved:"false")
    @app2 = App.create(name:"A2", address: "a1", city: "C1", state: "ST", zip: "12345", phone_number: "12345678", description:"desc",approved:"false")
 
-   PetApp.create(pet: @pet1, app: @app1)
-   PetApp.create(pet: @pet1, app: @app111)
-   PetApp.create(pet: @pet11, app: @app1)
-   PetApp.create(pet: @pet111, app: @app111)
-   PetApp.create(pet: @pet2, app: @app2)
-   PetApp.create(pet: @pet22, app: @app2)
+   PetApp.create(pet: @pet1, app: @app1, approved: false)
+   PetApp.create(pet: @pet1, app: @app111, approved: false)
+   PetApp.create(pet: @pet11, app: @app1, approved: false)
+   PetApp.create(pet: @pet111, app: @app111, approved: false)
+   PetApp.create(pet: @pet2, app: @app2, approved: false)
+   PetApp.create(pet: @pet22, app: @app2, approved: false)
  end
 
  it "I can see application attributes" do
@@ -139,6 +139,7 @@ RSpec.describe "When I visit an applications show page '/apps/:id'", type: :feat
        expect(page).to_not have_button("Revoke Application")
        click_button("Approve Application")
      end
+
 
       expect(page).to have_content("Adoption status: Pending")
       expect(page).to have_content("On hold for #{@app1.name}")
