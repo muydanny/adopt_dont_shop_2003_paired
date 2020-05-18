@@ -1,0 +1,18 @@
+<div class="content">
+
+  <h1 class="header">All Applications</h1>
+
+  <% @apps.each do |app| %>
+  <section id="app-<%= app.id %>">
+      <p><a class= "pet-link" href="/apps/<%= app.id %>"><%= app.name %></a></p>
+      <% app.pets.each do |pet| %>
+      <p><a href="/pets/<%= pet.id %>"><%= pet.name %></a></p>
+      <% end %>
+      <%= button_to "Delete App", "/apps/#{app.id}", method: :delete %>
+  </section>
+
+  <% end %>
+
+
+
+</div>

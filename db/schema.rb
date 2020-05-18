@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20200514204055) do
+ActiveRecord::Schema.define(version: 20200518213445) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -23,15 +23,12 @@ ActiveRecord::Schema.define(version: 20200514204055) do
     t.string "zip"
     t.string "phone_number"
     t.string "description"
-    t.string "approved"
-  end
-
-  create_table "favorites", force: :cascade do |t|
   end
 
   create_table "pet_apps", force: :cascade do |t|
     t.bigint "pet_id"
     t.bigint "app_id"
+    t.boolean "approved"
     t.index ["app_id"], name: "index_pet_apps_on_app_id"
     t.index ["pet_id"], name: "index_pet_apps_on_pet_id"
   end
