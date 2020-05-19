@@ -11,7 +11,7 @@ RSpec.describe "When I visit a shelter's show page" do
 
     expect(current_path).to eq("/shelters/#{shelter.id}/reviews/#{review.id}/edit")
 
-    fill_in('review_title', :with => "Nevermind, hate it here")
+    fill_in( :title, :with => "Nevermind, hate it here")
 
     expect do
       click_button("Edit Review")

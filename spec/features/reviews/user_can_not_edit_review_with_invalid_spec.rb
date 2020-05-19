@@ -10,7 +10,7 @@ RSpec.describe "When I fail to enter a title, a rating, and/or content in edit r
 
     expect(current_path).to eq("/shelters/#{shelter.id}/reviews/#{review.id}/edit")
 
-    fill_in :review_title, with: ""
+    fill_in :title, with: ""
 
     click_button("Edit Review")
     expect(current_path).to eq("/shelters/#{shelter.id}/reviews/#{review.id}/edit")

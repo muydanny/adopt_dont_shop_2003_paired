@@ -1,17 +1,18 @@
-<h1>Update Review</h1>
+<div class="content">
 
-<%= form_for @review, url: {action: "update"} do |f| %>
-  <%= label_tag(:title) %>
-  <%= f.text_field :title %>
-  <br>
-  <%= label_tag(:rating) %>
-  <%= f.text_field :rating %>
-  <br>
-  <%= label_tag(:content) %>
-  <%= f.text_field :content %>
-  <br>
-  <%= label_tag(:image) %>
-  <%= f.text_field :image %>
-  <br>
-  <%= f.submit "Edit Review", class: "grey hover"  %>
-<% end %>
+<h1 class="header center-text">Update Review</h1>
+
+<br><br>
+  <section class="bolder">
+
+  <%= render partial: 'review_form',
+    locals: {path: "/shelters/#{@shelter.id}/reviews/#{@review.id}",
+             method: :patch,
+             klass: "grey hover",
+             button_text: 'Edit Review',
+             title_fillin: "#{@review.title}",
+             rating_fillin: "#{@review.rating}",
+             content_fillin: "#{@review.content}",
+             image_fillin: "#{@review.image}" }%>
+  </section>
+</div>
