@@ -1,26 +1,20 @@
 <div class="content">
 
-  <h1 class="header">Update <%= @pet.name %></h1>
+  <h1 class="header center-text">Update <%= @pet.name %></h1>
 
-  <section class="bold">
-    <%= form_tag "/pets/#{@pet.id}", method: :patch do %>
-      <%= label_tag :name %><br>
-      <%= text_field_tag :name, "#{@pet.name}" %><br><br>
-      <%= label_tag :description %><br>
-      <%= text_area_tag :description, "#{@pet.description}" %><br><br>
-      <%= label_tag :image %><br>
-      <%= text_field_tag :image, "#{@pet.image}" %><br><br>
-      <%= label_tag :age %><br>
-      <%= number_field_tag :age , "#{@pet.age}"%><br><br>
-      <%= label_tag :female %><br>
-      <%= radio_button_tag :sex, :female , "#{@pet.sex}"%><br><br>
-      <%= label_tag :male %><br>
-      <%= radio_button_tag :sex, :male, "#{@pet.sex}" %><br>
-      <%= hidden_field_tag :adoptable, "#{@pet.adoptable}" %><br>
-      <%= submit_tag "Update Pet" %>
-    <%end %>
-
+  <section class="bolder">
+  <br><br>
+  <%= render partial: 'pet_form',
+    locals: {path: "/pets/#{@pet.id}/edit",
+             method: :patch,
+             klass: "grey hover",
+             button_text: 'Update Pet',
+             name_fillin: "#{@pet.name}",
+             description_fillin: "#{@pet.description}",
+             image_fillin: "#{@pet.image}",
+             age_fillin: "#{@pet.age}",
+             sex_fillin: "#{@pet.sex}",
+             adoptable_fillin: "#{@pet.adoptable}" }%>
   </section>
-
 
 </div>
