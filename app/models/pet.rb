@@ -33,7 +33,7 @@ class Pet < ApplicationRecord
   def on_hold_for
     pet_app = PetApp.where(pet_id: id).first
     if pet_app.approved
-      app_name = App.find(pet_app.app_id).name
+      app_name = App.find(pet_app.app_id)
     else
       nil
     end
