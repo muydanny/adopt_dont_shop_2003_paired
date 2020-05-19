@@ -20,6 +20,11 @@ class ReviewsController < ApplicationController
   def create
     @review = Review.create(shelter_id: shelter_id[:id])
     @review.update(review_params)
+
+    if @review.image == ""
+      @review.assign_random_image
+    end
+
     if @review.save
       redirect_to "/shelters/#{shelter_id[:id]}", notice: "Successfully created review! Thanks dog."
     else
