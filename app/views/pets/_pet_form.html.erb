@@ -1,0 +1,37 @@
+
+<%= form_tag path, method: method do %>
+  <%= label_tag(:name) %>
+  <br>
+  <%= text_field_tag :name, name_fillin %>
+  <br>
+  <br>
+  <%= label_tag(:description) %>
+  <br>
+  <%= text_field_tag :description, description_fillin %>
+  <br>
+  <br>
+  <%= label_tag(:image) %>
+  <br>
+  <%= text_field_tag :image, image_fillin %>
+  <br>
+  <br>
+  <%= label_tag(:age) %>
+  <br>
+  <%= text_field_tag :age, age_fillin %>
+  <br>
+  <br>
+  <%= label_tag(:female) %>
+  <br>
+  <%= radio_button_tag :sex, :female, sex_fillin %>
+  <br>
+  <br>
+  <%= label_tag(:male) %>
+  <br>
+  <%= radio_button_tag :sex, :male, sex_fillin %>
+  <br>
+  <br>
+  <%= hidden_field_tag :adoptable, adoptable_fillin %>
+  <br>
+  <%= submit_tag button_text, class: klass  %>
+
+<% end %>

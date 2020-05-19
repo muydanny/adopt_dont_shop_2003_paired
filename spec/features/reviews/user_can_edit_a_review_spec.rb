@@ -20,19 +20,3 @@ RSpec.describe "When I visit a shelter's show page" do
     expect(current_path).to eq("/shelters/#{shelter.id}")
   end
 end
-
-
-
-
-
-# When I visit a shelter's show page
-# I see a link to edit the shelter review next to each review.
-# When I click on this link, I am taken to an edit shelter review path
-# On this new page, I see a form that includes that review's pre populated data:
-# - title
-# - rating
-# - content
-# - image
-# I can update any of these fields and submit the form.
-# When the form is submitted, I should return to that shelter's show page
-# And I can see my updated review
