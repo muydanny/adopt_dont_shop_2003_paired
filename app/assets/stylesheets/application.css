@@ -152,6 +152,12 @@
   left: 50%;
   height: 20vh;
 }
+.pet-image-small-float {
+  left: 50%;
+  height: 20vh;
+  float: right;
+  margin-right: 40vw;
+}
 .pet-list {
   border-left-style: solid;
   border-left-width: 20px;
