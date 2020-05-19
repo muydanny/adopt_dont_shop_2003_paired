@@ -9,25 +9,27 @@
   </head>
 
   <body>
-
-    <%= yield %>
     <div class="background">
-      <img src="https://wallpaperaccess.com/full/783057.jpg" alt="kitten">
+      <img src="https://tg-cdn.azureedge.net/sites/default/files/2019-10/meadow-3375052_1920-%281%29.jpg" alt="grass">
     </div>
+      <%= yield %>
 
-    <div class="main_menu">
-      <a class="link" href="/">Main</a>
-      <a class="link" href="/shelters">Shelters</a>
-      <a class="link" href="/shelters/new">New Shelter</a>
-      <a class="link" href="/pets">Pets</a>
-      <a class="favorite_indicator" href="/favorites"> <%= favorite.total_count %></a>
-      <a class="link" href="/apps/all"> All Apps</a>
 
-    </div>
-    <% flash.each do |type, message| %>
-      <section class=<%= type %>>
-        <p class="user-message"><%= message %></p>
-      </section>
-    <% end %>
+      <div class="main_menu">
+        <a class="link" href="/">Main</a>
+        <a class="link" href="/shelters">Shelters</a>
+        <a class="link" href="/shelters/new">New Shelter</a>
+        <a class="link" href="/pets">Pets</a>
+        <a class="favorite_indicator" href="/favorites"> <%= favorite.total_count %></a>
+        <a class="link" href="/apps/all"> All Apps</a>
+
+      </div>
+      <% flash.each do |type, message| %>
+        <section class=<%= type %>>
+          <p class="user-message"><%= message %></p>
+        </section>
+      <% end %>
+
+
   </body>
 </html>
