@@ -5,16 +5,16 @@
   <br>
   <section class="bolder">
     <%= render partial: 'pet_form',
-    locals: {path: "shelters/#{@shelter.id}/pets",
-    method: :post,
-    klass: "grey hover",
-    button_text: 'Update Pet',
-    name_fillin: "",
-    description_fillin: "",
-    image_fillin: "",
-    age_fillin: "",
-    sex_fillin: "",
-    adoptable_fillin: "" }%>
+    locals: {path: "/shelters/#{@shelter.id}/pets",
+            method: :post,
+            klass: "grey hover",
+            button_text: 'Create Pet',
+            name_fillin: "",
+            description_fillin: "",
+            image_fillin: "",
+            age_fillin: "",
+            sex_fillin: "",
+            adoptable_fillin: "" }%>
 
   </section>
 

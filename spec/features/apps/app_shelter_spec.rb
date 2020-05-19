@@ -91,8 +91,8 @@ RSpec.describe "Shelter App relationsip", type: :feature do
 
   it "if a shelter is deleted, its pets are deleted" do
     visit "/shelters"
-    pet_ids = Pet.all.map{|pet| pet[:id]}
-    shelter_ids = Shelter.all.map{|shelter| shelter[:id]}
+    pet_ids = Pet.pluck(:id)
+    shelter_ids = Shelter.pluck(:id)
 
     expect(pet_ids.include?(@pet1.id)).to eq(true)
     expect(pet_ids.include?(@pet2.id)).to eq(true)
@@ -105,8 +105,10 @@ RSpec.describe "Shelter App relationsip", type: :feature do
       click_button "Delete #{@shelter2.name}"
     end
 
-    pet_ids = Pet.all.map{|pet| pet[:id]}
-    shelter_ids = Shelter.all.map{|shelter| shelter[:id]}
+    # pet_ids = Pet.pluck(:id)
+    pet_ids = Pet.pluck(:id)
+    # shelter_ids = Shelter.pluck(:id)
+    shelter_ids = Shelter.pluck(:id)
 
     expect(pet_ids.include?(@pet1.id)).to eq(true)
     expect(pet_ids.include?(@pet2.id)).to eq(false)
@@ -116,4 +118,6 @@ RSpec.describe "Shelter App relationsip", type: :feature do
     expect(shelter_ids.include?(@shelter3.id)).to eq(true)
 
   end
+
+
 end

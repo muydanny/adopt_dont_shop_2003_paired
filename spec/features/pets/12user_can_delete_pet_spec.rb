@@ -91,7 +91,7 @@ RSpec.describe "pet update ", type: :feature do
     PetApp.create(pet: pet100, app: app111, approved: true)
     PetApp.create(pet: pet110, app: app100, approved: false)
 
-    pet_ids = Pet.all.map{|pet| pet[:id]}
+    pet_ids = Pet.pluck(:id)
     expect(pet_ids.include?(pet100.id)).to eq(true)
     expect(pet_ids.include?(pet110.id)).to eq(true)
     expect(pet_ids.include?(pet111.id)).to eq(true)
@@ -105,7 +105,7 @@ RSpec.describe "pet update ", type: :feature do
       expect(page).not_to have_button("Delete #{pet100.name}")
     end
 
-    pet_ids = Pet.all.map{|pet| pet[:id]}
+    pet_ids = Pet.pluck(:id)
     expect(pet_ids.include?(pet100.id)).to eq(true)
 
     visit "/pets/#{pet110.id}"
@@ -116,7 +116,7 @@ RSpec.describe "pet update ", type: :feature do
       click_button("Delete #{pet110.name}")
     end
 
-    pet_ids = Pet.all.map{|pet| pet[:id]}
+    pet_ids = Pet.pluck(:id)
     expect(pet_ids.include?(pet110.id)).to eq(false)
 
     visit "/pets/#{pet111.id}"
@@ -127,7 +127,7 @@ RSpec.describe "pet update ", type: :feature do
       click_button("Delete #{pet111.name}")
     end
 
-    pet_ids = Pet.all.map{|pet| pet[:id]}
+    pet_ids = Pet.pluck(:id)
     expect(pet_ids.include?(pet100.id)).to eq(true)
     expect(pet_ids.include?(pet110.id)).to eq(false)
     expect(pet_ids.include?(pet111.id)).to eq(false)
@@ -148,7 +148,7 @@ RSpec.describe "pet update ", type: :feature do
     PetApp.create(pet: pet100, app: app111)
     PetApp.create(pet: pet110, app: app100)
 
-    pet_ids = Pet.all.map{|pet| pet[:id]}
+    pet_ids = Pet.pluck(:id)
     expect(pet_ids.include?(pet100.id)).to eq(true)
     expect(pet_ids.include?(pet110.id)).to eq(true)
     expect(pet_ids.include?(pet111.id)).to eq(true)
@@ -161,7 +161,7 @@ RSpec.describe "pet update ", type: :feature do
       expect(page).not_to have_button("Delete #{pet100.name}")
     end
 
-    pet_ids = Pet.all.map{|pet| pet[:id]}
+    pet_ids = Pet.pluck(:id)
     expect(pet_ids.include?(pet100.id)).to eq(true)
 
     within("#pet-#{pet110.id}")do
@@ -170,7 +170,7 @@ RSpec.describe "pet update ", type: :feature do
       click_button("Delete #{pet110.name}")
     end
 
-    pet_ids = Pet.all.map{|pet| pet[:id]}
+    pet_ids = Pet.pluck(:id)
     expect(pet_ids.include?(pet110.id)).to eq(false)
 
     within("#pet-#{pet111.id}")do
@@ -179,7 +179,7 @@ RSpec.describe "pet update ", type: :feature do
       click_button("Delete #{pet111.name}")
     end
 
-    pet_ids = Pet.all.map{|pet| pet[:id]}
+    pet_ids = Pet.pluck(:id)
     expect(pet_ids.include?(pet100.id)).to eq(true)
     expect(pet_ids.include?(pet110.id)).to eq(false)
     expect(pet_ids.include?(pet111.id)).to eq(false)
@@ -193,7 +193,7 @@ RSpec.describe "pet update ", type: :feature do
     pet110x = shelter1.pets.create(name: "P110x",age: "1",sex: "male",description: "d1",image: "i1",adoptable: true)
     pet111x = shelter1.pets.create(name: "P111x",age: "1",sex: "male",description: "d1",image: "i1",adoptable: true)
 
-    pet_ids = Pet.all.map{|pet| pet[:id]}
+    pet_ids = Pet.pluck(:id)
     expect(pet_ids.include?(pet100x.id)).to eq(true)
     expect(pet_ids.include?(pet110x.id)).to eq(true)
     expect(pet_ids.include?(pet111x.id)).to eq(true)
@@ -218,7 +218,7 @@ RSpec.describe "pet update ", type: :feature do
         click_button("Delete P111x")
       end
     end
-    pet_ids = Pet.all.map{|pet| pet[:id]}
+    pet_ids = Pet.pluck(:id)
     expect(pet_ids.include?(pet100x.id)).to eq(true)
     expect(pet_ids.include?(pet110x.id)).to eq(true)
     expect(pet_ids.include?(pet111x.id)).to eq(false)

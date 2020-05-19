@@ -42,4 +42,9 @@ class Pet < ApplicationRecord
   def approved
     PetApp.where(pet_id: id).where(approved: :true).exists?
   end
+
+  def self.approved_pets
+    pet_ids = PetApp.where(approved: :true).pluck(:pet_id)
+    Pet.find(pet_ids)
+  end
 end

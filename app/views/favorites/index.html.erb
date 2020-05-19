@@ -30,8 +30,8 @@
   <% end %><br><br>
   <%  %>
   <% if !@apps.empty? %>
-  <section id="pets-apps">
-    <h2>Pets with active applications</h2>
+  <section id="pets-apps" class="pet-list">
+    <h2 class="header-right">Pets with active applications</h2>
     <% @pets.each do |pet| %>
     <% if !pet.apps.empty? %>
     <section id="app-<%= pet.id %>">
@@ -42,5 +42,18 @@
     <% end %>
   </section>
   <% end %>
+
+  <section id="approved-pets" class="pet-list">
+    <% if !@pets.approved_pets.empty? %>
+    <h2 class="header-right">Approved Pets</h2>
+      <%  @pets.approved_pets.each do |pet| %>
+        <%= link_to "#{pet.name}", "/pets/#{pet.id}", class: "pet-link" %><br><br>
+      <% end %>
+    <% end %>
+  </section><br><br><br>
+
+
+
+
 
 </div>
