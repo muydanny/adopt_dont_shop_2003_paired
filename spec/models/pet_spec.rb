@@ -134,5 +134,23 @@ RSpec.describe Pet, type: :model do
     expect(@pet1.approved).to eq(false)
   end
 
+  it "returns approved pets"do
+  @shelter1 = Shelter.create(name: "S1", address: "A1",city: "C1",state: "ST",zip: "12345")
+  @pet1 = @shelter1.pets.create(name: "P1",age: "1",sex: "male",description: "d1",image: "i1",adoptable: true)
+  @pet11 = @shelter1.pets.create(name: "P11",age: "1",sex: "male",description: "d1",image: "i1",adoptable: false)
+  @pet111 = @shelter1.pets.create(name: "P111",age: "1",sex: "male",description: "d1",image: "i1",adoptable: false)
+  @app1 = App.create(name:"A1", address: "a1", city: "C1", state: "ST", zip: "12345", phone_number: "12345678", description:"desc")
+  @app111 = App.create(name:"A111", address: "a1", city: "C1", state: "ST", zip: "12345", phone_number: "12345678", description:"desc")
+  expect(Pet.approved_pets).to eq([])
+  @pet_app1 = PetApp.create(pet: @pet1, app: @app1, approved: false)
+  @pet_app2 = PetApp.create(pet: @pet1, app: @app111, approved: false)
+  @pet_app3 = PetApp.create(pet: @pet11, app: @app1, approved: true)
+  @pet_app3 = PetApp.create(pet: @pet111, app: @app1, approved: true)
+
+  expect(Pet.approved_pets).to eq([@pet11, @pet111])
+  @pets = Pet.all
+  expect(@pets.approved_pets).to eq([@pet11, @pet111])
+  end
+
 
 end

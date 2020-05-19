@@ -118,4 +118,6 @@ RSpec.describe "Shelter App relationsip", type: :feature do
     expect(shelter_ids.include?(@shelter3.id)).to eq(true)
 
   end
+
+
 end
