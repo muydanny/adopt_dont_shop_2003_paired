@@ -75,7 +75,7 @@ RSpec.describe "When I visit an applications show page '/apps/:id'", type: :feat
     @pet11.reload
     @app1.reload
     expect(page).to have_content("Adoption status: Pending")
-    expect(page).to have_content("On hold for #{@app1.name}")
+    expect(page).to have_content("On hold for: #{@app1.name}")
     # expect(@app1.approved).to eq("true")
   end
 
@@ -94,7 +94,7 @@ RSpec.describe "When I visit an applications show page '/apps/:id'", type: :feat
     end
     expect(current_path).to eq("/pets/#{@pet1.id}")
     expect(page).to have_content("Adoption status: Pending")
-    expect(page).to have_content("On hold for #{@app1.name}")
+    expect(page).to have_content("On hold for: #{@app1.name}")
     visit "/apps/#{@app1.id}"
     within("#pet-#{@pet11.id}") do
 
@@ -105,7 +105,7 @@ RSpec.describe "When I visit an applications show page '/apps/:id'", type: :feat
      @pet11.reload
      @app1.reload
      expect(page).to have_content("Adoption status: Pending")
-     expect(page).to have_content("On hold for #{@app1.name}")
+     expect(page).to have_content("On hold for: #{@app1.name}")
    end
 
    it "can not approve any other apps for pet" do
@@ -140,7 +140,7 @@ RSpec.describe "When I visit an applications show page '/apps/:id'", type: :feat
 
 
       expect(page).to have_content("Adoption status: Pending")
-      expect(page).to have_content("On hold for #{@app1.name}")
+      expect(page).to have_content("On hold for: #{@app1.name}")
 
       visit "/apps/#{@app1.id}"
 

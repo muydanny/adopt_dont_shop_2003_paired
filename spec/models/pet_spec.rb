@@ -117,7 +117,7 @@ RSpec.describe Pet, type: :model do
     PetApp.create(pet: @pet1, app: @app111, approved: false)
     PetApp.create(pet: @pet11, app: @app1, approved: true)
 
-    expect(@pet11.on_hold_for).to eq("A1")
+    expect(@pet11.on_hold_for.name).to eq("A1")
     expect(@pet1.on_hold_for).to eq(nil)
   end
 
