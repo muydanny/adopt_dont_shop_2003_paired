@@ -5,7 +5,7 @@
   <section class="bolder">
   <br><br>
   <%= render partial: 'pet_form',
-    locals: {path: "/pets/#{@pet.id}/edit",
+    locals: {path: "/pets/#{@pet.id}",
              method: :patch,
              klass: "grey hover",
              button_text: 'Update Pet',
