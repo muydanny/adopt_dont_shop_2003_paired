@@ -42,7 +42,7 @@
    position: absolute;
    width: 40vw;
    height: 80%;
-   top:0;
+   top:40px;
    left: 0;
 
    margin-top: 80px;
@@ -55,7 +55,7 @@
    position: absolute;
    width: 30vw;
    height: 80%;
-   top:0;
+   top:40px;
    left: 43vw;
 
    margin-top: 80px;
@@ -75,12 +75,19 @@
 }
 
 .header {
-  color: white;
+  /* color: white;
   text-shadow:
       0.07em 0 black,
       0 0.07em black,
       -0.07em 0 black,
-      0 -0.07em black;
+      0 -0.07em black; */
+  font-family: var(--Futura);
+  margin: 24px 0px;
+  text-transform: uppercase;
+  color: yellow;
+  font-size: 72px;
+  line-height: 78px;
+  text-shadow: -2px -2px #000, -1px -1px #000, 0px -1px #000, 1px 0px #000, -1px 0px #000, 1px 1px #000, 2px 2px #000, 3px 3px #000, 4px 4px #000, 5px 5px #000, 6px 6px #000, 7px 7px #000, 8px 8px #000, 9px 9px #000, 10px 10px #000, 11px 11px #000, 12px 12px #000, 13px 13px #000, 14px 14px #000, 15px 15px #000;
 }
 
 .header h1 {
@@ -252,4 +259,8 @@
 }
 .user-message {
   margin-top:40px;
+}
+
+.center-text{
+  text-align: center
 }
