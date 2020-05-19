@@ -18,6 +18,9 @@ class AppsController < ApplicationController
 
   def create
     @app = App.create(app_params)
+    if @app.image == nil
+      @app.assign_random_image
+    end
 
     if @app.save
       params[:pet_ids].each do |id|

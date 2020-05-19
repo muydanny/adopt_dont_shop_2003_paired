@@ -76,12 +76,22 @@
 
 .header {
   color: white;
-    text-shadow:
-        0.07em 0 black,
-        0 0.07em black,
-        -0.07em 0 black,
-        0 -0.07em black;
+  text-shadow:
+      0.07em 0 black,
+      0 0.07em black,
+      -0.07em 0 black,
+      0 -0.07em black;
 }
+
+.header h1 {
+  text-shadow:
+      0.07em 0 black,
+      0 0.07em black,
+      -0.07em 0 black,
+      0 -0.07em black;
+  text-align: center;
+}
+
 .welcome-statement {
   color: black;
   font-weight: bold;
@@ -194,6 +204,23 @@
 .bold {
   font-weight: bold;
 }
+
+.bolder{
+  font-weight: bold;
+  text-align: center;
+  width: 400px;
+  height: 30px;
+  border-radius: 10px;
+  margin: auto;
+}
+
+.bolder input {
+  text-align: center;
+  width: 400px;
+  height: 30px;
+  border-radius: 10px;
+}
+
 .italic {
   font-style:italic;
 }
