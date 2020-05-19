@@ -1,0 +1,25 @@
+
+<%= form_tag path, method: method do %>
+  <%= label_tag(:title) %>
+  <br>
+  <%= text_field_tag :title, title_fillin %>
+  <br>
+  <br>
+  <%= label_tag(:rating) %>
+  <br>
+  <%= text_field_tag :rating, rating_fillin %>
+  <br>
+  <br>
+  <%= label_tag(:content) %>
+  <br>
+  <%= text_field_tag :content, content_fillin %>
+  <br>
+  <br>
+  <%= label_tag(:image) %>
+  <br>
+  <%= text_field_tag :image, image_fillin %>
+  <br>
+  <br>
+  <%= submit_tag button_text, class: klass  %>
+
+<% end %>

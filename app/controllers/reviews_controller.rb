@@ -2,10 +2,12 @@ class ReviewsController < ApplicationController
 
   def new_review
     @review = Review.new(shelter_id: params["id"])
+    @shelter = Shelter.find(params[:id])
   end
 
   def edit
     @review = Review.find(params[:review_id])
+    @shelter = Shelter.find(params[:id])
   end
 
   def update
@@ -18,8 +20,11 @@ class ReviewsController < ApplicationController
   end
 
   def create
-    @review = Review.create(shelter_id: shelter_id[:id])
-    @review.update(review_params)
+    @shelter = Shelter.find(params[:id])
+    @review = @shelter.reviews.create(review_params)
+    # @review = Review.create(shelter_id: shelter_id[:id])
+    # @review = Review.create(review_params)
+    # @review.update(review_params)
 
     if @review.image == ""
       @review.assign_random_image
@@ -40,7 +45,8 @@ class ReviewsController < ApplicationController
   private
 
   def review_params
-    params.require(:review).permit(:title, :rating, :content, :image)
+    # params.require(:review).permit(:title, :rating, :content, :image)
+    params.permit(:title, :rating, :content, :image)
   end
 
   def shelter_id

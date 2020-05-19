@@ -6,13 +6,13 @@ RSpec.describe "When I fail to enter a title, rating, content" do
     review = create(:review, shelter: shelter)
 
     visit "/shelters/#{shelter.id}/new_review"
-    expect(find_button("Submit")).to be_truthy
+    expect(find_button("Create Review")).to be_truthy
 
     expect(current_path).to eq("/shelters/#{shelter.id}/new_review")
 
-    fill_in :review_title, with: "This place rocks!"
+    fill_in :title, with: "This place rocks!"
 
-    click_button("Submit")
+    click_button("Create Review")
     expect(current_path).to eq("/shelters/#{shelter.id}/new_review")
     expect(page).to have_content("Please fill out entire form")
   end
