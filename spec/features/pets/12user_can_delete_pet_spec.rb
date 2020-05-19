@@ -87,9 +87,9 @@ RSpec.describe "pet update ", type: :feature do
     app100 = App.create(name:"A100", address: "a1", city: "C1", state: "ST", zip: "12345", phone_number: "12345678", description:"desc")
     app111 = App.create(name:"A111", address: "a1", city: "C1", state: "ST", zip: "12345", phone_number: "12345678", description:"desc")
 
-    PetApp.create(pet: pet100, app: app100)
-    PetApp.create(pet: pet100, app: app111)
-    PetApp.create(pet: pet110, app: app100)
+    PetApp.create(pet: pet100, app: app100, approved: true)
+    PetApp.create(pet: pet100, app: app111, approved: true)
+    PetApp.create(pet: pet110, app: app100, approved: false)
 
     pet_ids = Pet.all.map{|pet| pet[:id]}
     expect(pet_ids.include?(pet100.id)).to eq(true)
