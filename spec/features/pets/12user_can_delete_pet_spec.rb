@@ -134,7 +134,7 @@ RSpec.describe "pet update ", type: :feature do
 
   end
 
-  it "cannot delete pets with approved apps (pending adoption status) from index" do
+  it "cannot delete pets with approved apps from index" do
     shelter1 = Shelter.create(name: "S1", address: "A1",city: "C1",state: "ST",zip: "12345")
 
     pet100 = shelter1.pets.create(name: "P100",age: "1",sex: "male",description: "d1",image: "i1",adoptable: false)
@@ -144,9 +144,9 @@ RSpec.describe "pet update ", type: :feature do
     app100 = App.create(name:"A100", address: "a1", city: "C1", state: "ST", zip: "12345", phone_number: "12345678", description:"desc")
     app111 = App.create(name:"A111", address: "a1", city: "C1", state: "ST", zip: "12345", phone_number: "12345678", description:"desc")
 
-    PetApp.create(pet: pet100, app: app100)
-    PetApp.create(pet: pet100, app: app111)
-    PetApp.create(pet: pet110, app: app100)
+    PetApp.create(pet: pet100, app: app100, approved: true)
+    PetApp.create(pet: pet100, app: app111, approved: false)
+    PetApp.create(pet: pet110, app: app100, approved: false)
 
     pet_ids = Pet.pluck(:id)
     expect(pet_ids.include?(pet100.id)).to eq(true)
@@ -156,7 +156,7 @@ RSpec.describe "pet update ", type: :feature do
     visit "/pets"
 
     within("#pet-#{pet100.id}")do
-      expect(pet100.adoptable).to eq(false)
+      expect(pet100.approved).to eq(true)
       expect(page).to have_content("Cannot delete pet with approved applications")
       expect(page).not_to have_button("Delete #{pet100.name}")
     end

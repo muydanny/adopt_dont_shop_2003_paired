@@ -29,7 +29,7 @@
       <% end %><br>
 
       <% if @pet.approved %>
-      <p>On hold for <%= @pet.on_hold_for %></p>
+      <p>On hold for: <a class="shelter-link" href="/apps/<%= @pet.on_hold_for.id %>"><%= @pet.on_hold_for.name %></a></p>
       <% end %>
       <section class="header-right">
         <h3>Application Settings: </h3>
