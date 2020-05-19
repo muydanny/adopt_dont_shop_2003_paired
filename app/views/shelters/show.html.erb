@@ -1,6 +1,6 @@
 
   <div class="content">
-    
+
     <h1 class="header">Shelter Details</h1>
     <h2 class="bold">Name: <%= @shelter.name %></h2>
     <p class="bold"> Pet Count: <%= @shelter.pets.count %></p>
@@ -8,15 +8,19 @@
     <p class="bold">City: <%= @shelter.city %></p>
     <p class="bold">State: <%= @shelter.state %></p>
     <p class="bold">Zip: <%= @shelter.zip %></p> <br>
+
+    <h2 class="header-left">Pet Settings</h2>
     <p><a class="edit" href="/shelters/<%= @shelter.id %>/pets/new">Create Pet</a></p>
 
   <a class="edit" href="/shelters/<%= @shelter.id%>/pets">See Adoptable Pets!</a>
   <br><br>
+
+  <h2 class="header-left">Shelter Settings</h2>
   <p><a class="edit" href="/shelters/<%= @shelter.id %>/edit">Update Shelter</a></p>
 
-  <%= link_to "Review this shelter!", "/shelters/#{@shelter.id}/new_review", method: "get" %>
+  <%= link_to "Review this shelter!", "/shelters/#{@shelter.id}/new_review", method: "get", class: "grey hover"%>
 
-  <h2>Reviews for <%= @shelter.name.capitalize %></h2>
+  <h2 class="header-left">Reviews for <%= @shelter.name.capitalize %></h2>
   <% (@shelter.reviews || []).each do |review| %>
     <section id="review-<%= review.id %>">
 
@@ -29,7 +33,7 @@
       <br><br>
       <%= link_to "Edit Review", "/shelters/#{@shelter.id}/reviews/#{review.id}/edit", method: "get", class: "grey hover" %>
       <%= link_to "Delete Review", "/shelters/#{@shelter.id}/reviews/#{review.id}", method: "delete", class: "grey hover" %>
-      <br>
+      <br><br>
     </section>
       <% end %>
 
@@ -40,6 +44,6 @@
   </section>
   <% else %>
   <p class="italics">Cannot delete shelter while it has pets</p>
-  <% end %>
+  <% end %><br><br>
 
 </div>

@@ -5,6 +5,14 @@
   <% if @favorite_pets.empty? %>
     <p class="bold">You have no favorited pets</p>
   <% else %>
+  <section id="remove-all-from-fav">
+      <%= button_to "Remove all pets from favorites", "/favorites?remove_all=true", method: :delete, class: "grey hover" %>
+    </section><br>
+
+    <section class="new-application">
+      <%= button_to "New application for favorite pets", "/apps/new",  method: :get, class: "grey hover" %>
+    </section>
+
     <% @favorite_pets.each do |pet| %>
     <section id="<%= pet.id %>-info" class="pet-list">
 
@@ -18,17 +26,6 @@
     <br>
 
     <% end %>
-
-    <section id="remove-all-from-fav">
-      <%= button_to "Remove all pets from favorites", "/favorites?remove_all=true", method: :delete, class: "grey hover" %>
-    </section><br>
-
-    <section class="new-application">
-      <%= button_to "New application for favorite pets", "/apps/new",  method: :get, class: "grey hover" %>
-    </section>
-
-
-
 
   <% end %><br><br>
   <%  %>
