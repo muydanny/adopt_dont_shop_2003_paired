@@ -47,8 +47,8 @@ RSpec.describe "Shleters can be deleted ", type: :feature do
     review11 = create(:review, shelter: shelter1)
     review2 = create(:review, shelter: shelter2)
 
-    shelter_ids = Shelter.all.map{|shelter| shelter[:id]}
-    review_ids = Review.all.map{|review| review[:id]}
+    shelter_ids = Shelter.pluck(:id)
+    review_ids = Review.pluck(:id)
 
     expect(shelter_ids.include?(shelter1.id)).to eq(true)
     expect(review_ids.include?(review1.id)).to eq(true)
@@ -59,7 +59,7 @@ RSpec.describe "Shleters can be deleted ", type: :feature do
     within("#review-#{review1.id}")do
       click_link("Delete Review")
     end
-    review_ids = Review.all.map{|review| review[:id]}
+    review_ids = Review.pluck(:id)
     expect(review_ids.include?(review1.id)).to eq(false)
 
     visit "/shelters"
@@ -69,10 +69,10 @@ RSpec.describe "Shleters can be deleted ", type: :feature do
       click_button("Delete #{shelter1.name}")
       end
     end
-    review_ids = Review.all.map{|review| review[:id]}
+    review_ids = Review.pluck(:id)
     expect(review_ids.include?(review1.id)).to eq(false)
     expect(review_ids.include?(review11.id)).to eq(false)
-    shelter_ids = Shelter.all.map{|shelter| shelter[:id]}
+    shelter_ids = Shelter.pluck(:id)
     expect(shelter_ids.include?(shelter1.id)).to eq(false)
     expect(shelter_ids.include?(shelter2.id)).to eq(true)
 
