@@ -2,9 +2,7 @@
 
   <h1 class="header">Applications for <a class= "pet-link" href="/pets/<%= @pet.id %>"><%= @pet.name %></a></h1>
 
-  <section id="remove-all-from-fav">
-    <%= button_to "Remove all pets from favorites", "/favorites?remove_all=true", method: :delete, class: "grey hover" %>
-  </section><br>
+
 
   <h2> Applicant Name: </h2>
   <% if @pet.apps.empty? %>
