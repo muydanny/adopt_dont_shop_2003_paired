@@ -31,11 +31,6 @@ class Pet < ApplicationRecord
   end
 
   def on_hold_for
-    # binding.pry
-    # if !adoptable
-    #   apps.where(approved: :true).pluck(:name).join
-    #
-    # end
     pet_app = PetApp.where(pet_id: id).first
     if pet_app.approved
       app_name = App.find(pet_app.app_id).name
