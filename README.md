@@ -368,7 +368,7 @@ Each applicant's name is a link to their application show page
 ```
 
 ```
-[  ] done
+[ X ] done
 
 User Story 21, Pet Applications Index Page When No Applications
 
@@ -378,7 +378,7 @@ I see a message saying that there are no applications for this pet yet
 ```
 
 ```
-[  ] done
+[ X ] done
 
 User Story 22, Approving an Application
 
@@ -392,7 +392,7 @@ And I see text on the page that says who this pet is on hold for (Ex: "On hold f
 ```
 
 ```
-[  ] done
+[ X ] done
 
 User Story 23, Users can get approved to adopt more than one pet
 
@@ -405,7 +405,7 @@ I'm able to approve the application for any number of pets
 ```
 User Story 24, Pets can only have one approved application on them at any time
 
-[  ] done
+[ X ] done
 
 As a visitor
 When a pet has more than one application made for them
@@ -417,7 +417,7 @@ I can not approve any other applications for that pet but all other applications
 ```
 User Story 25, Approved Applications can be revoked
 
-[  ] done
+[ X ] done
 
 As a visitor
 After an application has been approved for a pet
@@ -590,7 +590,7 @@ Each pet's name is a link to their show page
 ```
 
 ```
-[ ] done
+[ X ] done
 
 User Story 38, Reviews have a default picture
 
@@ -601,7 +601,7 @@ A default image is used and displayed for that review upon submission
 ```
 
 ```
-[ ] done
+[ X ] done
 
 User Story 39, Sortable Reviews
 

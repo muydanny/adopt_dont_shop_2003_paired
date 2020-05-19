@@ -12,7 +12,6 @@ class SheltersController < ApplicationController
   def create
 
     shelter = Shelter.create(shelter_params)
-
     if shelter.save
       flash[:notice] = "You have created #{shelter.name}"
       redirect_to '/shelters'

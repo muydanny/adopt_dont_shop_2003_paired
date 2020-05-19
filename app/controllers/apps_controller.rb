@@ -18,7 +18,7 @@ class AppsController < ApplicationController
 
   def create
     @app = App.create(app_params)
-
+    
     if @app.save
       params[:pet_ids].each do |id|
         PetApp.create(pet_id: id, app_id: @app.id, approved: false)
