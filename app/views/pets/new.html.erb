@@ -1,26 +1,21 @@
 <div class="content">
 
-  <h1 class="header">Enter A New Shelter Pet</h1>
+  <h1 class="header center-text">Enter A New Shelter Pet</h1>
+  <br>
+  <br>
+  <section class="bolder">
+    <%= render partial: 'pet_form',
+    locals: {path: "/shelters/#{@shelter.id}/pets",
+            method: :post,
+            klass: "grey hover",
+            button_text: 'Create Pet',
+            name_fillin: "",
+            description_fillin: "",
+            image_fillin: "",
+            age_fillin: "",
+            sex_fillin: "",
+            adoptable_fillin: "" }%>
 
-  <section class="bold">
-    <%= form_tag "/shelters/#{@shelter.id}/pets" do %>
-      <%= label_tag :name %><br>
-      <%= text_field_tag :name %><br><br>
-      <%= label_tag :description %><br>
-      <%= text_area_tag :description %><br><br>
-      <%= label_tag :image %><br>
-      <%= text_field_tag :image %><br><br>
-      <%= label_tag :age %><br>
-      <%= number_field_tag :age %><br><br>
-      <%= label_tag :female %><br>
-      <%= radio_button_tag :sex, :female %><br><br>
-      <%= label_tag :male %><br>
-      <%= radio_button_tag :sex, :male %><br>
-      <%= hidden_field_tag :adoptable, true %>
-      <%= submit_tag "Create Pet" %>
-    <%end %>
   </section>
-
-
 
 </div>
