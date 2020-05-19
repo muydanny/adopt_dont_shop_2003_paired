@@ -25,6 +25,9 @@ ActiveRecord::Schema.define(version: 20200518213445) do
     t.string "description"
   end
 
+  create_table "favorites", force: :cascade do |t|
+  end
+
   create_table "pet_apps", force: :cascade do |t|
     t.bigint "pet_id"
     t.bigint "app_id"
