@@ -179,7 +179,7 @@ RSpec.describe "Favorite Indicator", type: :feature do
     expect(@app.pets).to eq([@pet1])
     expect(@pet1.apps).to eq([@app])
     expect(current_path).to eq("/favorites")
-    expect(page).to have_content("Your application for the selected pets has been submitted")
+    expect(page).to have_content("Your application for #{@pet1.name} has been submitted")
     expect(page).not_to have_css("##{@pet1.id}-info")
     within("##{@pet2.id}-info")do
       expect(page).to have_content("#{@pet2.name}")

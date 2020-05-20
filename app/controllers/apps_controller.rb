@@ -24,8 +24,7 @@ class AppsController < ApplicationController
         PetApp.create(pet_id: id, app_id: @app.id, approved: false)
         session[:favorite].delete(id.to_s)
       end
-
-      flash[:notice] = "Your application for the selected pets has been submitted"
+      flash[:notice] = "Your application for #{pets_on_app} has been submitted"
       redirect_to '/favorites'
     else
       flash[:notice] = "You must complete the #{empty_params} fields"
@@ -86,6 +85,10 @@ class AppsController < ApplicationController
     empty_params << "Phone Number" if params[:phone_number] == ""
     empty_params << "Description" if params[:description] == ""
     empty_params.join(", ")
+  end
+
+  def pets_on_app
+    Pet.find(params[:pet_ids]).pluck(:name).join(", ")
   end
 
 end
