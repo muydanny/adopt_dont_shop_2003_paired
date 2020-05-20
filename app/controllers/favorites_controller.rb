@@ -15,12 +15,7 @@ class FavoritesController < ApplicationController
       quantity = favorite.count_of(pet.id)
       flash[:notice] = "You have added #{pet.name} to your favorites"
     end
-
-    if params[:page] == "show"
-      redirect_to "/pets/#{pet.id}"
-    elsif params[:page] == "index"
-      redirect_to "/pets"
-    end
+    redirect_back(fallback_location: "/pets")
   end
 
   def destroy
@@ -30,13 +25,7 @@ class FavoritesController < ApplicationController
       favorite.delete(pet.id.to_s)
       flash[:notice] = "You have removed #{pet.name} from your favorites"
     end
-    if params[:page] == "favorites"
-      redirect_to '/favorites'
-    elsif params[:page] == "show"
-      redirect_to "/pets/#{pet.id}"
-    elsif params[:page] == "index"
-      redirect_to "/pets"
-    end
+    redirect_back(fallback_location:"/favorites")
   end
 
   def destroy_all

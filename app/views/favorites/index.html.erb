@@ -6,7 +6,7 @@
     <p class="bold">You have no favorited pets</p>
   <% else %>
   <section id="remove-all-from-fav">
-      <%= button_to "Remove all pets from favorites", "/favorites?remove_all=true", method: :delete, class: "grey hover" %>
+      <%= button_to "Remove all pets from favorites", "/favorites", method: :delete, class: "grey hover" %>
     </section><br>
 
     <section class="new-application">
@@ -20,7 +20,7 @@
         <h2><a id="<%= pet.name %>"class="pet-link hover" href="/pets/<%= pet.id %>"><%= pet.name %></a></h2>
         <br>
         <section id="delete-<%= pet.id %>">
-          <%= button_to "Remove #{pet.name} from favorites", "/favorites/#{pet.id}?page=favorites", method: :delete, class: "grey hover" %>
+          <%= button_to "Remove #{pet.name} from favorites", "/favorites/#{pet.id}", method: :delete, class: "grey hover" %>
         </section>
     </section>
     <br>
