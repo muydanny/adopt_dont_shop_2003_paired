@@ -55,8 +55,8 @@ RSpec.describe "Application index page", type: :feature do
     click_link "View Applications"
 
     expect(current_path).to eq("/pets/#{@pet222.id}/apps")
-
-    expect(page).to have_content("Applications for #{@pet222.name}")
+    expect(page).to have_content("Applications for")
+    expect(page).to have_content("#{@pet222.name}")
     expect(page).to have_content("There are no applications for this pet.")
   end
 

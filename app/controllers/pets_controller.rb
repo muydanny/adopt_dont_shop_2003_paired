@@ -15,10 +15,10 @@ class PetsController < ApplicationController
     pet = shelter.pets.create(pet_params)
 
     if pet.save
-      flash[:message] = "#{pet.name} has been created!"
+      flash[:notice] = "#{pet.name} has been created!"
       redirect_to "/shelters/#{shelter.id}/pets"
     else
-      flash[:message] = "You must fill out #{empty_params}"
+      flash[:notice] = "You must fill out #{empty_params}"
       redirect_to "/shelters/#{shelter.id}/pets/new"
     end
   end
