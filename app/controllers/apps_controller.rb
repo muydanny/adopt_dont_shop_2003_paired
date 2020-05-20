@@ -35,7 +35,9 @@ class AppsController < ApplicationController
 
   def update
     pet = Pet.find(params[:id])
-    pet_app = PetApp.where(pet_id: pet.id)
+    pet_app = PetApp.where(pet_id: pet.id).first
+    # app = App.where(id: pet_app.app_id).first
+    app = App.find(pet_app.app_id)
     if params[:approved] == "true"
     pet_app.update({
       approved: true
@@ -43,6 +45,7 @@ class AppsController < ApplicationController
     pet.update({
       adoptable: false
       })
+      redirect_to "/pets/#{pet.id}"
     else params[:approved] == "false"
       pet_app.update({
         approved: false
@@ -50,8 +53,9 @@ class AppsController < ApplicationController
       pet.update({
         adoptable: true
         })
+      # redirect_to "/pets/#{pet.id}"
+      redirect_back(fallback_location: "/apps/#{app.id}" )
     end
-    redirect_to "/pets/#{pet.id}"
   end
 
   def destroy
