@@ -14,6 +14,21 @@ RSpec.describe "When I fail to enter a title, a rating, and/or content in edit r
 
     click_button("Edit Review")
     expect(current_path).to eq("/shelters/#{shelter.id}/reviews/#{review.id}/edit")
-    expect(page).to have_content("Please fill out entire form")
+    expect(page).to have_content("Please fill out Title fields")
+
+    fill_in :title, with: ""
+    fill_in :rating, with: ""
+
+    click_button("Edit Review")
+    expect(current_path).to eq("/shelters/#{shelter.id}/reviews/#{review.id}/edit")
+    expect(page).to have_content("Please fill out Title, Rating fields")
+
+    fill_in :title, with: ""
+    fill_in :rating, with: ""
+    fill_in :content, with: ""
+
+    click_button("Edit Review")
+    expect(current_path).to eq("/shelters/#{shelter.id}/reviews/#{review.id}/edit")
+    expect(page).to have_content("Please fill out Title, Rating, Content fields")
   end
 end

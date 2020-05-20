@@ -9,6 +9,7 @@ class Shelter < ApplicationRecord
   validates_presence_of :zip
 
   def self.shelter_list(params)
+
     if params[:alphabetical] == "true"
       order("lower(name)")
     elsif params[:num_pets] == "true"
