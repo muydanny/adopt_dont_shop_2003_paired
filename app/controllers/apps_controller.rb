@@ -18,24 +18,25 @@ class AppsController < ApplicationController
 
   def create
     @app = App.create(app_params)
-    
+
     if @app.save
       params[:pet_ids].each do |id|
         PetApp.create(pet_id: id, app_id: @app.id, approved: false)
         session[:favorite].delete(id.to_s)
       end
-
-      flash[:notice] = "Your application for the selected pets has been submitted"
+      flash[:notice] = "Your application for #{pets_on_app} has been submitted"
       redirect_to '/favorites'
     else
-      flash[:notice] = "You must complete the order form"
+      flash[:notice] = "You must complete the #{empty_params} fields"
       redirect_to '/apps/new'
     end
   end
 
   def update
     pet = Pet.find(params[:id])
-    pet_app = PetApp.where(pet_id: pet.id)
+    pet_app = PetApp.where(pet_id: pet.id).first
+    # app = App.where(id: pet_app.app_id).first
+    app = App.find(pet_app.app_id)
     if params[:approved] == "true"
     pet_app.update({
       approved: true
@@ -43,6 +44,7 @@ class AppsController < ApplicationController
     pet.update({
       adoptable: false
       })
+      redirect_to "/pets/#{pet.id}"
     else params[:approved] == "false"
       pet_app.update({
         approved: false
@@ -50,8 +52,9 @@ class AppsController < ApplicationController
       pet.update({
         adoptable: true
         })
+      # redirect_to "/pets/#{pet.id}"
+      redirect_back(fallback_location: "/apps/#{app.id}" )
     end
-    redirect_to "/pets/#{pet.id}"
   end
 
   def destroy
@@ -70,6 +73,22 @@ class AppsController < ApplicationController
                   :phone_number,
                   :description
                   )
+  end
+
+  def empty_params
+    empty_params = []
+    empty_params << "Name" if params[:name] == ""
+    empty_params << "Address" if params[:address] == ""
+    empty_params << "City" if params[:city] == ""
+    empty_params << "State" if params[:state] == ""
+    empty_params << "Zip" if params[:zip] == ""
+    empty_params << "Phone Number" if params[:phone_number] == ""
+    empty_params << "Description" if params[:description] == ""
+    empty_params.join(", ")
+  end
+
+  def pets_on_app
+    Pet.find(params[:pet_ids]).pluck(:name).join(", ")
   end
 
 end

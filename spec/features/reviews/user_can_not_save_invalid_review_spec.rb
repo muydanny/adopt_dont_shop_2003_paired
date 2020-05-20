@@ -10,10 +10,25 @@ RSpec.describe "When I fail to enter a title, rating, content" do
 
     expect(current_path).to eq("/shelters/#{shelter.id}/new_review")
 
+    click_button("Create Review")
+    expect(current_path).to eq("/shelters/#{shelter.id}/new_review")
+    expect(page).to have_content("Please fill out Title, Rating, Content fields")
+
     fill_in :title, with: "This place rocks!"
 
     click_button("Create Review")
     expect(current_path).to eq("/shelters/#{shelter.id}/new_review")
-    expect(page).to have_content("Please fill out entire form")
+    expect(page).to have_content("Please fill out Rating, Content fields")
+
+    fill_in :title, with: "This place rocks!"
+    fill_in :rating, with: "This place rocks!"
+
+    click_button("Create Review")
+    expect(current_path).to eq("/shelters/#{shelter.id}/new_review")
+    expect(page).to have_content("Please fill out Content fields")
+
   end
+
+
+
 end

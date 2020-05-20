@@ -15,7 +15,8 @@ class ReviewsController < ApplicationController
     if review.update(review_params)
       redirect_to "/shelters/#{shelter_id[:id]}", notice: "Successfully edited review! Thanks dog."
     else
-      redirect_to "/shelters/#{shelter_id[:id]}/reviews/#{review.id}/edit" , notice: "Please fill out entire form"
+      redirect_to "/shelters/#{shelter_id[:id]}/reviews/#{review.id}/edit"
+      flash[:notice] =  "Please fill out #{empty_params} fields"
     end
   end
 
@@ -33,7 +34,8 @@ class ReviewsController < ApplicationController
     if @review.save
       redirect_to "/shelters/#{shelter_id[:id]}", notice: "Successfully created review! Thanks dog."
     else
-      redirect_to "/shelters/#{shelter_id[:id]}/new_review" , notice: "Please fill out entire form"
+      redirect_to "/shelters/#{shelter_id[:id]}/new_review"
+      flash[:notice] =  "Please fill out #{empty_params} fields"
     end
   end
 
@@ -52,4 +54,15 @@ class ReviewsController < ApplicationController
   def shelter_id
     params.permit(:id)
   end
+
+  def empty_params
+    empty_params = []
+    empty_params << "Title" if params[:title] == ""
+    empty_params << "Rating" if params[:rating] == ""
+    empty_params << "Content" if params[:content] == ""
+    empty_params.join(", ")
+  end
+
+
+
 end

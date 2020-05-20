@@ -148,6 +148,9 @@ RSpec.describe "When I visit an applications show page '/apps/:id'", type: :feat
         expect(page).to_not have_button("Approve Application")
         click_button("Revoke Application")
       end
+      expect(current_path).to eq("/apps/#{@app1.id}")
+      
+      visit "/pets/#{@pet1.id}"
       expect(page).to have_content("Adoption status: Adoptable")
       expect(page).to_not have_content("On hold for #{@app1.name}")
     end
