@@ -17,8 +17,3 @@ RSpec.describe "When I visit a shelter's show page" do
     expect(page).not_to have_css("img#review-image-#{review.id}")
   end
 end
-
-# When I visit a shelter's show page,
-# I see a link next to each shelter review to delete the review.
-# When I delete a shelter review I am returned to the shelter's show page
-# And I should no longer see that shelter review
