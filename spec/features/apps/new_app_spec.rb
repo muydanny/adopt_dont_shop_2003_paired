@@ -58,7 +58,14 @@ RSpec.describe "New Application", type: :feature do
 
     click_button "Submit my application"
 
-    expect(page).to have_content("You must complete the order form")
+    expect(page).to have_content("You must complete the Name, Address, City, State, Zip, Phone Number, Description fields")
+    expect(current_path).to eq("/apps/new")
+
+    fill_in :address, with: "1234 st"
+
+    click_button "Submit my application"
+
+    expect(page).to have_content("You must complete the Name, City, State, Zip, Phone Number, Description fields")
     expect(current_path).to eq("/apps/new")
 
   end

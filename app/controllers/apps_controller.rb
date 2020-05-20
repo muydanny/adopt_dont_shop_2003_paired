@@ -18,7 +18,7 @@ class AppsController < ApplicationController
 
   def create
     @app = App.create(app_params)
-    
+
     if @app.save
       params[:pet_ids].each do |id|
         PetApp.create(pet_id: id, app_id: @app.id, approved: false)
@@ -28,7 +28,7 @@ class AppsController < ApplicationController
       flash[:notice] = "Your application for the selected pets has been submitted"
       redirect_to '/favorites'
     else
-      flash[:notice] = "You must complete the order form"
+      flash[:notice] = "You must complete the #{empty_params} fields"
       redirect_to '/apps/new'
     end
   end
@@ -70,6 +70,18 @@ class AppsController < ApplicationController
                   :phone_number,
                   :description
                   )
+  end
+
+  def empty_params
+    empty_params = []
+    empty_params << "Name" if params[:name] == ""
+    empty_params << "Address" if params[:address] == ""
+    empty_params << "City" if params[:city] == ""
+    empty_params << "State" if params[:state] == ""
+    empty_params << "Zip" if params[:zip] == ""
+    empty_params << "Phone Number" if params[:phone_number] == ""
+    empty_params << "Description" if params[:description] == ""
+    empty_params.join(", ")
   end
 
 end
