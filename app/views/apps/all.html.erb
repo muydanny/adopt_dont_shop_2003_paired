@@ -3,17 +3,17 @@
   <h1 class="header">All Applications</h1>
 
   <section id="remove-all-from-fav">
-    <%= button_to "Remove all pets from favorites", "/favorites?remove_all=true", method: :delete, class: "grey hover" %>
+    <%= button_to "Remove all pets from favorites", "/favorites", method: :delete, class: "grey hover" %>
   </section><br>
 
   <% @apps.each do |app| %>
-  <section id="app-<%= app.id %>">
-      <p><a class= "pet-link" href="/apps/<%= app.id %>"><%= app.name %></a></p>
+  <section id="app-<%= app.id %>" class="pet-list">
+      <h2 class=header-right>Applicant: <a class= "shelter-link" href="/apps/<%= app.id %>"><%= app.name %></a></h2>
       <% app.pets.each do |pet| %>
-      <p><a href="/pets/<%= pet.id %>"><%= pet.name %></a></p>
+      <p><a class="pet-link" href="/pets/<%= pet.id %>"><%= pet.name %></a></p>
       <% end %>
-      <%= button_to "Delete App", "/apps/#{app.id}", method: :delete %>
-  </section>
+      <%= button_to "Delete App", "/apps/#{app.id}", method: :delete, class: "grey hover" %><br>
+  </section><br>
 
   <% end %>
 

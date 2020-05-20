@@ -83,7 +83,6 @@
   border-bottom: solid 5px #0E3026;
   /* border-bottom: solid 5px #0E3026; */
 }
-
 .header {
   /* color: white;
   text-shadow:
@@ -99,7 +98,6 @@
   line-height: 78px;
   text-shadow: -2px -2px #000, -1px -1px #000, 0px -1px #000, 1px 0px #000, -1px 0px #000, 1px 1px #000, 2px 2px #000, 3px 3px #000, 4px 4px #000, 5px 5px #000, 6px 6px #000, 7px 7px #000, 8px 8px #000, 9px 9px #000, 10px 10px #000, 11px 11px #000, 12px 12px #000, 13px 13px #000, 14px 14px #000, 15px 15px #000;
 }
-
 .header h1 {
   text-shadow:
       0.07em 0 black,
@@ -108,12 +106,11 @@
       0 -0.07em black;
   text-align: center;
 }
-
 .welcome-statement {
   color: black;
   font-weight: bold;
 }
- .main_menu {
+.main_menu {
    font-family:"Arial";
    background-color:black;
    overflow:hidden;
@@ -162,8 +159,6 @@
 .shelter-edit:hover{
   color: black;
 }
-
-
 .submit_button {
   background-color: black;
   color:white;
@@ -229,7 +224,6 @@
 .bold {
   font-weight: bold;
 }
-
 .bolder {
   font-weight: bold;
   text-align: center;
@@ -238,14 +232,12 @@
   border-radius: 10px;
   margin: auto;
 }
-
 .bolder input {
   text-align: center;
   width: 400px;
   height: 30px;
   border-radius: 10px;
 }
-
 .italic {
   font-style:italic;
 }
@@ -276,9 +268,8 @@
   padding-left: 40px;
 }
 .user-message {
-  margin-top:40px;
+  margin-top:50px;
 }
-
 .center-text{
   text-align: center
 }
