@@ -601,7 +601,7 @@ A default image is used and displayed for that review upon submission
 ```
 
 ```
-[ X ] done
+[  ] done
 
 User Story 39, Sortable Reviews
 
